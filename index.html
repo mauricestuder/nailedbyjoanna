@@ -3,9 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Entwurf: nicht von Suchmaschinen erfassen lassen, bis die Kundin zusagt -->
-<meta name="robots" content="noindex, nofollow">
 <title>Nailed by Joanna Förster · Nagelstudio Langenthal</title>
+<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Nagelstudio in Langenthal von Joanna Förster, Europa- und Weltmeisterin im Nageldesign. Modellage, Russische Maniküre, Gellack, handgemalte Nailart und Pediküre. Termine über Treatwell.">
 <meta name="theme-color" content="#f4ece1">
 <meta property="og:title" content="Nailed by Joanna Förster · Nagelstudio Langenthal">
@@ -512,6 +511,32 @@ p { margin: 0 0 1em; }
 @keyframes hoch { to { transform: none; } }
 @keyframes aufdecken { to { clip-path: inset(0 0 0 0 round 999px 999px 6px 6px); } }
 @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12); } }
+
+/* ---------- PC: enger zusammen (Wunsch Maurice 26.9.) ---------- */
+@media (min-width: 1024px) {
+  :root { --abschnitt: 96px; }
+  .kopf { min-height: 0; padding: 128px 0 80px; }
+  .kopf-raster { gap: 64px; }
+  .kopf h1 { font-size: clamp(50px, 6.6vw, 88px); margin-bottom: 22px; }
+  .kopf .einleitung { margin-bottom: 30px; }
+  .kopf-knoepfe { margin-bottom: 28px; }
+  .titel-kopf { margin-bottom: 48px; }
+  .zahlen { margin-top: 56px; }
+  .pokal { padding: 36px 24px 28px; }
+  .reiter { margin-bottom: 32px; }
+  .tafel { padding: 44px 52px; }
+  .preise li { padding: 10px 0; }
+  .preise-fuss { margin-top: 24px; }
+  .ueber { gap: 72px; }
+  .zitat { margin: 24px 0; }
+  .steuerung { margin-top: 36px; }
+  .stimmen-quelle { margin-top: 24px; }
+  .frage summary { padding: 22px 0; }
+  .kontakt-raster { gap: 72px; }
+  .kontakt-liste li { padding: 16px 0; }
+  .zeiten th, .zeiten td { padding: 11px 0; }
+  .fuss { padding-top: 56px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
