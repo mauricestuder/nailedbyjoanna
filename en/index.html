@@ -3,11 +3,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Nailed by Joanna Förster · Nail Studio Langenthal</title>
 <meta name="description" content="Nail studio in Langenthal, Switzerland, by Joanna Förster, who has competed at European and World Championships in nail design. Gel extensions, Russian manicure, gel polish, hand-painted nail art and pedicure. Book on Treatwell.">
 <meta name="theme-color" content="#f4ece1">
+<meta name="color-scheme" content="light only">
 <meta property="og:title" content="Nailed by Joanna Förster · Nail Studio Langenthal">
 <meta property="og:description" content="Competition-level nails: European and World Championships in nail design, Spitalgasse 10, Langenthal.">
 <meta property="og:type" content="website">
@@ -67,14 +68,14 @@
   --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --breite: 1160px;
   --rand: clamp(20px, 5vw, 48px);
-  --abschnitt: clamp(88px, 12vw, 160px);
+  --abschnitt: clamp(64px, 10vw, 160px);
   --ease-out: cubic-bezier(.22, 1, .36, 1);
   --ease-in-out: cubic-bezier(.65, 0, .35, 1);
 }
 
 /* ---------- Grundlagen ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+html { color-scheme: light only; scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--creme);
@@ -101,6 +102,9 @@ p { margin: 0 0 1em; }
 
 .wrap { width: min(100% - 2 * var(--rand), var(--breite)); margin-inline: auto; }
 .abschnitt { padding-block: var(--abschnitt); position: relative; }
+/* Wettkämpfe und Arbeiten näher zusammen (Wunsch Maurice 27.9.) */
+#titel { padding-bottom: calc(var(--abschnitt) * .6); }
+#arbeiten { padding-top: calc(var(--abschnitt) * .7); }
 
 /* Kleiner Oberbegriff über Titeln */
 .oben {
@@ -130,17 +134,21 @@ p { margin: 0 0 1em; }
   transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), background-color .35s, color .35s;
 }
 .knopf svg { width: 16px; height: 16px; flex: none; }
-.knopf-voll { background: var(--text); color: var(--creme); border: 1px solid var(--text); box-shadow: var(--schatten); }
+.knopf-voll { background: var(--text); color: var(--creme); border: 1px solid var(--text); box-shadow: 0 1px 2px rgba(59,49,40,.12); }
 .knopf-voll::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(100deg, transparent 20%, rgba(230,207,156,.5) 50%, transparent 80%);
   transform: translateX(-120%);
   transition: transform .9s var(--ease-out);
 }
-.knopf-voll:hover::after { transform: translateX(120%); }
 .knopf-linie { border: 1px solid var(--gold); color: var(--text); background: transparent; }
-.knopf-linie:hover { background: var(--beige); }
-.knopf:hover { transform: translateY(-2px); }
+/* Hover nur mit Maus: auf dem Handy blieb der Knopf nach dem Tippen angehoben */
+@media (hover: hover) {
+  .knopf-voll:hover::after { transform: translateX(120%); }
+  .knopf-voll:hover { box-shadow: var(--schatten); }
+  .knopf-linie:hover { background: var(--beige); }
+  .knopf:hover { transform: translateY(-2px); }
+}
 .knopf:active { transform: translateY(0) scale(.98); }
 
 /* ---------- Navigation ---------- */
@@ -290,19 +298,26 @@ p { margin: 0 0 1em; }
 .titel-kopf .einleitung { margin: 0; }
 @media (max-width: 800px) { .titel-kopf { grid-template-columns: 1fr; } }
 
-.pokale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.pokale { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .pokal {
-  position: relative; padding: 44px 28px 36px; text-align: center; background: var(--creme);
+  position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 22px; align-items: start;
+  padding: 26px 28px; text-align: left; background: var(--creme);
   border: 1px solid rgba(184,149,90,.35);
   transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .5s, opacity .9s var(--ease-out);
 }
 .pokal::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(184,149,90,.22); pointer-events: none; }
-.pokal:hover { transform: translateY(-6px); box-shadow: var(--schatten); border-color: var(--gold); }
-.pokal svg { width: 54px; height: 54px; margin: 0 auto 22px; color: var(--gold); }
-.pokal h3 { font-size: 24px; margin-bottom: 12px; }
+@media (hover: hover) { .pokal:hover { transform: translateY(-4px); box-shadow: var(--schatten); border-color: var(--gold); } }
+.pokal svg { grid-row: span 2; width: 44px; height: 44px; color: var(--gold); }
+.pokal h3 { font-size: 22px; margin: 0; }
 .pokal p { margin: 0; font-size: 15px; color: var(--text-leise); line-height: 1.55; }
-@media (max-width: 1000px) { .pokale { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .pokale { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .pokale { grid-template-columns: 1fr; gap: 10px; }
+  .pokal { padding: 16px 18px; gap: 2px 16px; }
+  .pokal::before { display: none; }
+  .pokal svg { width: 34px; height: 34px; }
+  .pokal h3 { font-size: 19px; }
+  .pokal p { font-size: 14.5px; line-height: 1.5; }
+}
 
 .zahlen {
   display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(56px, 8vw, 96px);
@@ -349,6 +364,23 @@ p { margin: 0 0 1em; }
 /* Mit JS: Bilder immer in die kürzeste Spalte, damit unten keine grosse Lücke bleibt */
 .galerie.gelegt { columns: auto; position: relative; }
 .galerie.gelegt > a { position: absolute; margin: 0; }
+/* Zugeklappt: nur die ersten Reihen, unten weich ausgeblendet; der runde Pfeil klappt auf und zu */
+.galerie-huelle { position: relative; }
+.js .galerie-huelle { overflow: hidden; transition: max-height .7s var(--ease-in-out); }
+.galerie-huelle::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; pointer-events: none;
+  background: linear-gradient(rgba(244,236,225,0), var(--beige)); opacity: 0; transition: opacity .5s;
+}
+.galerie-huelle.zu::after { opacity: 1; }
+.mehr {
+  display: grid; place-items: center; width: 56px; height: 56px; margin: 8px auto 0; padding: 0;
+  border: 1px solid var(--gold); border-radius: 50%; background: var(--creme); color: var(--gold-text);
+  cursor: pointer; touch-action: manipulation; transition: background .3s, border-color .3s;
+}
+.mehr[hidden] { display: none; }
+.mehr svg { width: 22px; height: 22px; transition: transform .5s var(--ease-out); }
+.mehr[aria-expanded="true"] svg { transform: rotate(180deg); }
+@media (hover: hover) { .mehr:hover { background: var(--beige-dunkel); border-color: var(--gold-text); } }
 .galerie > a.einblenden { animation: einblenden .5s var(--ease-out); }
 @keyframes einblenden { from { opacity: 0; transform: translateY(12px); } }
 
@@ -519,12 +551,16 @@ p { margin: 0 0 1em; }
 .fuss-unten p { margin: 0; }
 
 /* Fester Buchungsknopf auf dem Handy */
+/* Als Leiste am unteren Rand, nicht schwebend (sah in Safari und Chrome aus wie in der Luft) */
 .handy-buchen {
-  position: fixed; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 40;
-  display: none; transform: translateY(160%); transition: transform .5s var(--ease-out);
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(251,247,241,.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(184,149,90,.35);
+  display: none; transform: translateY(100%); transition: transform .45s var(--ease-out);
 }
 .handy-buchen.sichtbar { transform: none; }
-.handy-buchen .knopf { width: 100%; }
+.handy-buchen .knopf { width: 100%; --h: 48px; box-shadow: none; }
 @media (max-width: 700px) {
   .handy-buchen { display: block; }
   .fuss { padding-bottom: 110px; }
@@ -534,7 +570,7 @@ p { margin: 0 0 1em; }
 /* Ohne JavaScript bleibt alles sichtbar; nur mit .js wird eingeblendet */
 .js .rv { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); transition-delay: calc(var(--i, 0) * 90ms); }
 .js .rv.da { opacity: 1; transform: none; }
-.js .pokal.rv.da:hover { transform: translateY(-6px); transition-delay: 0s; }
+@media (hover: hover) { .js .pokal.rv.da:hover { transform: translateY(-4px); transition-delay: 0s; } }
 .js .zier line { stroke-dasharray: 80; stroke-dashoffset: 80; transition: stroke-dashoffset 1.4s var(--ease-out) .2s; }
 .js .zier .raute { opacity: 0; transform: rotate(45deg) scale(0); transition: opacity .6s .7s, transform .8s var(--ease-out) .7s; }
 .js .zier.da line { stroke-dashoffset: 0; }
@@ -561,7 +597,6 @@ p { margin: 0 0 1em; }
   .kopf-knoepfe { margin-bottom: 28px; }
   .titel-kopf { margin-bottom: 48px; }
   .zahlen { margin-top: 56px; }
-  .pokal { padding: 36px 24px 28px; }
   .reiter { margin-bottom: 32px; }
   .tafel { padding: 44px 52px; }
   .preise li { padding: 10px 0; }
@@ -750,6 +785,7 @@ p { margin: 0 0 1em; }
     <p class="unsichtbar" id="filter-status" aria-live="polite"></p>
 
     <!-- Fotos: bilder/web/NN-800|1600 (.jpg/.webp), ohne GPS-Daten; Quelle bilder/original -->
+    <div class="galerie-huelle" id="galerie-huelle">
     <div class="galerie" id="galerie">
       <a data-kat="uni" class="rv" style="--i:0" href="../bilder/web/01-1600.jpg"><picture><source type="image/webp" srcset="../bilder/web/01-800.webp 800w, ../bilder/web/01-1600.webp 1536w" sizes="(max-width: 800px) 50vw, 380px"><img src="../bilder/web/01-800.jpg" srcset="../bilder/web/01-800.jpg 800w, ../bilder/web/01-1600.jpg 1536w" sizes="(max-width: 800px) 50vw, 380px" width="800" height="1067" loading="lazy" decoding="async" alt="Red stiletto nails with rhinestones"></picture></a>
       <a data-kat="nailart" class="rv" style="--i:1" href="../bilder/web/02-1600.jpg"><picture><source type="image/webp" srcset="../bilder/web/02-800.webp 800w, ../bilder/web/02-1600.webp 1600w" sizes="(max-width: 800px) 50vw, 380px"><img src="../bilder/web/02-800.jpg" srcset="../bilder/web/02-800.jpg 800w, ../bilder/web/02-1600.jpg 1600w" sizes="(max-width: 800px) 50vw, 380px" width="800" height="866" loading="lazy" decoding="async" alt="Nude nails with hand-painted white flowers"></picture></a>
@@ -770,6 +806,8 @@ p { margin: 0 0 1em; }
       <a data-kat="uni" class="rv logo-links" style="--i:1" href="../bilder/web/17-1600.jpg"><picture><source type="image/webp" srcset="../bilder/web/17-800.webp 800w, ../bilder/web/17-1600.webp 1466w" sizes="(max-width: 800px) 50vw, 380px"><img src="../bilder/web/17-800.jpg" srcset="../bilder/web/17-800.jpg 800w, ../bilder/web/17-1600.jpg 1466w" sizes="(max-width: 800px) 50vw, 380px" width="800" height="1121" loading="lazy" decoding="async" alt="Red almond nails"></picture></a>
       <a data-kat="babyboomer" class="rv" style="--i:2" href="../bilder/web/18-1600.jpg"><picture><source type="image/webp" srcset="../bilder/web/18-800.webp 800w, ../bilder/web/18-1600.webp 1536w" sizes="(max-width: 800px) 50vw, 380px"><img src="../bilder/web/18-800.jpg" srcset="../bilder/web/18-800.jpg 800w, ../bilder/web/18-1600.jpg 1536w" sizes="(max-width: 800px) 50vw, 380px" width="800" height="1067" loading="lazy" decoding="async" alt="Babyboomer in white and rosé"></picture></a>
     </div>
+    </div>
+    <button class="mehr" id="mehr" type="button" aria-expanded="false" aria-controls="galerie-huelle" aria-label="Show all works" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
   </div>
 </section>
 
@@ -1117,6 +1155,16 @@ p { margin: 0 0 1em; }
   document.documentElement.classList.add("js");
   var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Neu aufgerufen (Adresse eingetippt oder Link): immer oben beginnen, auch mit #preise o. ä. in der Adresse.
+     Neu laden oder zurück: der Browser behält die Stelle. */
+  try {
+    var aufruf = performance.getEntriesByType("navigation")[0];
+    if (aufruf && aufruf.type === "navigate") {
+      if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+      scrollTo({ top: 0, behavior: "instant" });
+    }
+  } catch (e) {}
+
   /* Ferien-Hinweis ein- und ausblenden */
   (function () {
     var f = document.getElementById("ferien");
@@ -1354,7 +1402,26 @@ p { margin: 0 0 1em; }
     });
     galerie.style.height = Math.max.apply(null, hoehe) - abstand + "px";
     galerie.classList.add("gelegt");
+    klappen();
   }
+  /* Galerie auf- und zuklappen */
+  var huelle = document.getElementById("galerie-huelle"), mehr = document.getElementById("mehr"), galerieOffen = false;
+  function klappen() {
+    var voll = galerie.offsetHeight, zu = breitBild.matches ? 760 : 600, lohnt = voll > zu + 160, offen = galerieOffen || !lohnt;
+    mehr.hidden = !lohnt;
+    huelle.style.maxHeight = (offen ? voll : zu) + "px";
+    huelle.classList.toggle("zu", !offen);
+    mehr.setAttribute("aria-expanded", offen);
+    mehr.setAttribute("aria-label", offen ? "Show fewer works" : "Show all works");
+  }
+  mehr.addEventListener("click", function () {
+    galerieOffen = !galerieOffen;
+    klappen();
+    if (!galerieOffen) {
+      var oben = huelle.getBoundingClientRect().top + scrollY - 90;
+      if (scrollY > oben) scrollTo({ top: oben, behavior: ruhig ? "auto" : "smooth" });
+    }
+  });
   legen();
   var legenTimer;
   addEventListener("resize", function () { clearTimeout(legenTimer); legenTimer = setTimeout(legen, 100); });
