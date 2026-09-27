@@ -253,7 +253,7 @@ p { margin: 0 0 1em; }
   display: grid; place-items: center;
 }
 .siegel svg { width: 112px; height: 112px; }
-.siegel .ring { font: 500 8.6px var(--sans); letter-spacing: .26em; fill: var(--gold-text); text-transform: uppercase; }
+.siegel .ring { font: 500 11.5px var(--sans); fill: var(--gold-text); text-transform: uppercase; }
 .siegel .kreis-text { animation: drehen 28s linear infinite; transform-origin: 56px 56px; }
 @keyframes drehen { to { transform: rotate(360deg); } }
 
@@ -663,9 +663,11 @@ p { margin: 0 0 1em; }
       <div class="siegel auftakt" style="--i:7" aria-hidden="true">
         <svg viewBox="0 0 112 112">
           <defs><path id="kreis" d="M56 56m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs>
-          <g class="kreis-text"><text class="ring"><textPath href="#kreis">Europa- &amp; Weltmeisterschaften ·</textPath></text></g>
+          <!-- textLength = Kreisumfang (2·π·42), damit der Text ringsum ohne Lücke läuft -->
+          <g class="kreis-text"><text class="ring"><textPath href="#kreis" textLength="263" lengthAdjust="spacing">Europa- &amp; Weltmeisterschaften ·</textPath></text></g>
           <circle cx="56" cy="56" r="28" fill="none" stroke="#b8955a" stroke-width=".8"/>
-          <text x="56" y="64" text-anchor="middle" fill="#7a5c2c" style="font:400 26px 'Playfair Display',Georgia,serif">J</text>
+          <!-- Das J aus dem Logo (Schriftzug "Joanna"), ausgeschnitten aus bilder/original/5115.png -->
+          <image href="bilder/web/siegel-j.png" x="37" y="38" width="38" height="36"/>
         </svg>
       </div>
     </div>
