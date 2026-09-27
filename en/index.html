@@ -342,6 +342,9 @@ p { margin: 0 0 1em; }
 .filter button:hover { border-color: var(--gold); }
 .filter button[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--creme); }
 .galerie > a[hidden] { display: none; }
+/* Mit JS: Bilder immer in die kürzeste Spalte, damit unten keine grosse Lücke bleibt */
+.galerie.gelegt { columns: auto; position: relative; }
+.galerie.gelegt > a { position: absolute; margin: 0; }
 .galerie > a.einblenden { animation: einblenden .5s var(--ease-out); }
 @keyframes einblenden { from { opacity: 0; transform: translateY(12px); } }
 
@@ -722,7 +725,7 @@ p { margin: 0 0 1em; }
         <h2 class="titel rv" id="arbeiten-h" style="--i:1">From the <em>studio</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
-      <p class="einleitung rv" style="--i:2">Eighteen sets from the studio – from delicate babyboomer to stiletto art. Tap a photo to see it large.</p>
+      <p class="einleitung rv" style="--i:2">Eighteen sets from the studio – from delicate babyboomer to stiletto art. Every set is handmade and tailored to the client.</p>
     </div>
 
     <div class="filter rv" role="group" aria-label="Filter work">
@@ -946,9 +949,6 @@ p { margin: 0 0 1em; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
       <div class="punkte-nav" id="punkte-nav"></div>
-      <button type="button" id="pause" aria-label="Pause automatic rotation">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="6" width="3" height="12"/><rect x="14" y="6" width="3" height="12"/></svg>
-      </button>
       <button type="button" data-schritt="1" aria-label="Next review">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </button>
@@ -1191,11 +1191,10 @@ p { margin: 0 0 1em; }
   });
   reiter.forEach(function (x) { if (x.getAttribute("aria-selected") !== "true") document.getElementById(x.getAttribute("aria-controls")).hidden = true; });
 
-  /* Bewertungs-Karussell: Pause-Knopf, hält bei Maus/Fokus an, bei reduzierter Bewegung kein Autoplay */
+  /* Bewertungs-Karussell: hält bei Maus/Fokus an, bei reduzierter Bewegung kein Autoplay */
   var stimmen = document.querySelectorAll(".stimme");
   var buehne = document.getElementById("buehne");
   var punkteNav = document.getElementById("punkte-nav");
-  var pause = document.getElementById("pause");
   var jetzt = 0, laeuft = !ruhig, timer = null, angehalten = false;
   stimmen.forEach(function (s, i) {
     var b = document.createElement("button");
@@ -1215,18 +1214,9 @@ p { margin: 0 0 1em; }
     buehne.setAttribute("aria-live", laeuft && !angehalten ? "off" : "polite");
     if (laeuft && !angehalten) timer = setInterval(function () { zeigen(jetzt + 1); }, 6500);
   }
-  function pauseSetzen(an) {
-    laeuft = an;
-    pause.setAttribute("aria-label", an ? "Pause automatic rotation" : "Start automatic rotation");
-    pause.innerHTML = an
-      ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="6" width="3" height="12"/><rect x="14" y="6" width="3" height="12"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
-    planen();
-  }
   document.querySelectorAll("[data-schritt]").forEach(function (b) {
     b.addEventListener("click", function () { zeigen(jetzt + +b.dataset.schritt); planen(); });
   });
-  pause.addEventListener("click", function () { pauseSetzen(!laeuft); });
   var stimmenBereich = document.getElementById("stimmen");
   ["mouseenter", "focusin"].forEach(function (ev) { stimmenBereich.addEventListener(ev, function () { angehalten = true; planen(); }); });
   ["mouseleave", "focusout"].forEach(function (ev) { stimmenBereich.addEventListener(ev, function () { angehalten = false; planen(); }); });
@@ -1235,7 +1225,7 @@ p { margin: 0 0 1em; }
     new IntersectionObserver(function (e) { angehalten = !e[0].isIntersecting; planen(); }).observe(stimmenBereich);
   }
   zeigen(0);
-  pauseSetzen(laeuft);
+  planen();
 
   /* Öffnungszeiten: heutigen Tag markieren, geöffnet/geschlossen (Zeit in Zürich) */
   var zeiten = { 1: [450, 1110], 2: [480, 1110], 3: [480, 780], 4: [480, 1110], 5: [510, 690], 6: [480, 720] };
@@ -1285,6 +1275,60 @@ p { margin: 0 0 1em; }
   alleBilder.forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); lbOeffnen(bilder.indexOf(a)); }); });
 
   /* Galerie-Filter: blendet Bilder aus, die Lightbox blättert nur durch die sichtbaren */
+  /* Galerie legen: grösste Bilder zuerst in die kürzeste Spalte, damit alle Spalten fast gleich lang sind.
+     In jeder Spalte bleibt die ursprüngliche Reihenfolge; das Blättern in der Grossansicht ändert sich nicht. */
+  var galerie = document.getElementById("galerie");
+  var breitBild = matchMedia("(min-width: 801px)");
+  function legen() {
+    var n = breitBild.matches ? 3 : 2, abstand = n === 3 ? 18 : 10;
+    var breite = (galerie.clientWidth - abstand * (n - 1)) / n, hoehe = [], spalten = [];
+    for (var i = 0; i < n; i++) { hoehe.push(0); spalten.push([]); }
+    var sichtbar = alleBilder.filter(function (a) { return !a.hidden; }).map(function (a, i) {
+      var img = a.querySelector("img");
+      return { a: a, i: i, h: breite * img.getAttribute("height") / img.getAttribute("width") };
+    });
+    var sortiert = sichtbar.slice().sort(function (x, y) { return y.h - x.h; });
+    sortiert.forEach(function (b) {
+      var k = hoehe.indexOf(Math.min.apply(null, hoehe));
+      spalten[k].push(b); hoehe[k] += b.h + abstand;
+    });
+    /* Bei wenigen Bildern (Filter) alle Aufteilungen durchprobieren und die mit der kleinsten Lücke nehmen */
+    if (Math.pow(n, sortiert.length) <= 200000) {
+      var h = hoehe.map(function () { return 0; }), wahl = [], beste = null, besteLuecke = Math.max.apply(null, hoehe) - Math.min.apply(null, hoehe);
+      (function suchen(j) {
+        if (j === sortiert.length) {
+          var l = Math.max.apply(null, h) - Math.min.apply(null, h);
+          if (l < besteLuecke - .5) { besteLuecke = l; beste = wahl.slice(); }
+          return;
+        }
+        for (var k = 0; k < n; k++) {
+          if (k > 0 && h[k] === h[k - 1]) continue;
+          h[k] += sortiert[j].h + abstand; wahl[j] = k;
+          suchen(j + 1);
+          h[k] -= sortiert[j].h + abstand;
+        }
+      })(0);
+      if (beste) {
+        spalten = spalten.map(function () { return []; }); hoehe = hoehe.map(function () { return 0; });
+        sortiert.forEach(function (b, j) { spalten[beste[j]].push(b); hoehe[beste[j]] += b.h + abstand; });
+      }
+    }
+    spalten.forEach(function (sp, k) {
+      var oben = 0;
+      sp.sort(function (x, y) { return x.i - y.i; }).forEach(function (b) {
+        b.a.style.width = breite + "px";
+        b.a.style.left = k * (breite + abstand) + "px";
+        b.a.style.top = oben + "px";
+        oben += b.h + abstand;
+      });
+    });
+    galerie.style.height = Math.max.apply(null, hoehe) - abstand + "px";
+    galerie.classList.add("gelegt");
+  }
+  legen();
+  var legenTimer;
+  addEventListener("resize", function () { clearTimeout(legenTimer); legenTimer = setTimeout(legen, 100); });
+  breitBild.addEventListener("change", legen);
   var filterStatus = document.getElementById("filter-status");
   document.querySelectorAll("[data-filter]").forEach(function (knopf, _, alle) {
     knopf.addEventListener("click", function () {
@@ -1299,6 +1343,7 @@ p { margin: 0 0 1em; }
         return zeigen;
       });
       filterStatus.textContent = bilder.length + " photos";
+      legen();
     });
   });
   lb.addEventListener("click", function (e) {
