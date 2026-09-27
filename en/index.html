@@ -427,7 +427,7 @@ p { margin: 0 0 1em; }
 .stimmen { background: var(--text); color: var(--creme); overflow: hidden; }
 .stimmen .oben { color: var(--gold-hell); }
 .stimmen-innen { max-width: 860px; margin-inline: auto; text-align: center; }
-.anfuehrung { width: 56px; height: 56px; margin: 0 auto 24px; color: var(--gold); }
+.anfuehrung { display: block; width: 48px; height: 48px; margin: 0 auto 20px; color: var(--gold); }
 .buehne { display: grid; }
 .stimme {
   grid-area: 1 / 1; margin: 0; opacity: 0; visibility: hidden; transform: translateY(12px);
@@ -918,9 +918,9 @@ p { margin: 0 0 1em; }
 <!-- ============ Stimmen ============ -->
 <section class="abschnitt stimmen" id="stimmen" aria-labelledby="stimmen-h">
   <div class="wrap stimmen-innen">
+    <svg class="anfuehrung rv" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M20 12c-7 2.5-12 8.6-12 16.5V36h12V24h-6c.4-4.3 3.3-7.7 7.4-9L20 12Zm20 0c-7 2.5-12 8.6-12 16.5V36h12V24h-6c.4-4.3 3.3-7.7 7.4-9L40 12Z"/></svg>
     <p class="oben rv">What clients say</p>
     <h2 class="unsichtbar" id="stimmen-h">Reviews</h2>
-    <svg class="anfuehrung rv" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M20 12c-7 2.5-12 8.6-12 16.5V36h12V24h-6c.4-4.3 3.3-7.7 7.4-9L20 12Zm20 0c-7 2.5-12 8.6-12 16.5V36h12V24h-6c.4-4.3 3.3-7.7 7.4-9L40 12Z"/></svg>
 
     <div class="buehne" id="buehne" aria-roledescription="carousel" aria-label="Reviews" aria-live="polite">
       <figure class="stimme aktiv" aria-roledescription="review" aria-label="1 of 4">
