@@ -555,11 +555,6 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
 }
 @media (max-width: 600px) { .frage .antwort { padding-right: 0; } .frage summary { padding: 17px 0; } }
 
-/* ---------- Aufruf ---------- */
-.aufruf { text-align: center; background: radial-gradient(700px 360px at 50% 0%, rgba(220,195,147,.35), transparent 70%), var(--beige); }
-.aufruf .titel { font-size: clamp(38px, 6vw, 72px); margin-bottom: 24px; }
-.aufruf .einleitung { margin: 0 auto 40px; }
-.aufruf .kopf-knoepfe { justify-content: center; margin: 0; }
 
 /* ---------- Kontakt ---------- */
 .kontakt-raster { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 96px); }
@@ -1141,20 +1136,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   </div>
 </section>
 
-<!-- ============ Aufruf ============ -->
-<section class="abschnitt aufruf" aria-labelledby="aufruf-h">
-  <div class="wrap">
-    <p class="oben rv">Appointments</p>
-    <h2 class="titel rv" id="aufruf-h" style="--i:1">Time for <em>beautiful hands</em></h2>
-    <p class="einleitung rv" style="--i:2">Choose your treatment and time online – for questions, you can reach me by phone or email.</p>
-    <div class="kopf-knoepfe rv" style="--i:3">
-      <a class="knopf knopf-voll" href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Book online</a>
-    </div>
-  </div>
-</section>
-
 <!-- ============ Kontakt ============ -->
-<section class="abschnitt" id="kontakt" aria-labelledby="kontakt-h">
+<section class="abschnitt dunkel-beige" id="kontakt" aria-labelledby="kontakt-h">
   <div class="wrap">
     <div class="titel-kopf">
       <div>
