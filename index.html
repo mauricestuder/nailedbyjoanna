@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Nailed by Joanna Förster · Nagelstudio Langenthal</title>
-<meta name="description" content="Nagelstudio im Langenthal von Joanna Förster, Teilnehmerin an Europa- und Weltmeisterschaften im Nageldesign. Modellage, Russische Maniküre, Gellack, handgemalte Nailart und Pediküre. Termine über Treatwell.">
+<meta name="description" content="Nagelstudio im Langenthal von Joanna Förster, elffache Siegerin an Europa- und Weltmeisterschaften im Nageldesign. Modellage, Russische Maniküre, Gellack, handgemalte Nailart und Pediküre. Termine über Treatwell.">
 <meta name="theme-color" content="#f4ece1">
 <meta name="color-scheme" content="light only">
 <meta property="og:title" content="Nailed by Joanna Förster · Nagelstudio Langenthal">
-<meta property="og:description" content="Nägel wie im Wettkampf: Europa- und Weltmeisterschaften im Nageldesign, Spitalgasse 10, Langenthal.">
+<meta property="og:description" content="Nägel wie im Wettkampf: 11 Siege an Europa- und Weltmeisterschaften im Nageldesign, Blumenstrasse 37, Langenthal.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_CH">
 <meta property="og:url" content="https://mauricestuder.github.io/nailedbyjoanna/">
@@ -35,7 +35,7 @@
   "telephone": "+41 76 620 98 22",
   "email": "foerster.joanna89@gmail.com",
   "sameAs": ["https://www.instagram.com/nailed_byjoanna/"],
-  "address": {"@type": "PostalAddress", "streetAddress": "Spitalgasse 10", "postalCode": "4900", "addressLocality": "Langenthal", "addressCountry": "CH"},
+  "address": {"@type": "PostalAddress", "streetAddress": "Blumenstrasse 37", "postalCode": "4900", "addressLocality": "Langenthal", "addressCountry": "CH"},
   "openingHoursSpecification": [
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "07:30", "closes": "18:30"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Thursday"], "opens": "08:00", "closes": "18:30"},
@@ -300,23 +300,31 @@ p { margin: 0 0 1em; }
 
 .pokale { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .pokal {
-  position: relative; display: grid; grid-template-columns: auto 1fr; gap: 4px 22px; align-items: start;
+  position: relative;
   padding: 26px 28px; text-align: left; background: var(--creme);
   border: 1px solid rgba(184,149,90,.35);
   transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .5s, opacity .9s var(--ease-out);
 }
 .pokal::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(184,149,90,.22); pointer-events: none; }
 @media (hover: hover) { .pokal:hover { transform: translateY(-4px); box-shadow: var(--schatten); border-color: var(--gold); } }
-.pokal svg { grid-row: span 2; width: 44px; height: 44px; color: var(--gold); }
-.pokal h3 { font-size: 22px; margin: 0; }
-.pokal p { margin: 0; font-size: 15px; color: var(--text-leise); line-height: 1.55; }
+.pokal-kopf { display: flex; align-items: center; gap: 18px; min-height: 66px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid rgba(184,149,90,.3); }
+.pokal .jahr { font: 400 40px/1 var(--serif); color: var(--gold-text); font-variant-numeric: lining-nums; }
+.pokal h3 { font-size: 20px; margin: 0; line-height: 1.25; }
+.pokal-kopf p { margin: 2px 0 0; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-leise); }
+.plaetze { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.plaetze li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-leise); line-height: 1.35; }
+/* Rang als Medaille: Gold, Silber, Bronze, danach nur Rand */
+.platz { flex: none; display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; font: 500 13px/1 var(--sans); color: var(--text); border: 1px solid var(--sand); }
+.platz.p1 { background: var(--gold-glanz); border-color: transparent; }
+.platz.p2 { background: linear-gradient(100deg, #c9c4bd, #eeebe6 50%, #bdb7ae); border-color: transparent; }
+.platz.p3 { background: linear-gradient(100deg, #b98a64, #e3c1a0 50%, #a8774f); border-color: transparent; }
 @media (max-width: 700px) {
   .pokale { grid-template-columns: 1fr; gap: 10px; }
-  .pokal { padding: 16px 18px; gap: 2px 16px; }
+  .pokal { padding: 20px 20px; }
   .pokal::before { display: none; }
-  .pokal svg { width: 34px; height: 34px; }
-  .pokal h3 { font-size: 19px; }
-  .pokal p { font-size: 14.5px; line-height: 1.5; }
+  .pokal .jahr { font-size: 34px; }
+  .pokal h3 { font-size: 18px; }
+  .plaetze li { font-size: 14.5px; }
 }
 
 .zahlen {
@@ -645,7 +653,7 @@ p { margin: 0 0 1em; }
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
   <a class="knopf knopf-voll" href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Termin buchen</a>
-  <p class="menue-kontakt"><a href="tel:+41766209822">076 620 98 22</a><br>Spitalgasse 10, 4900 Langenthal</p>
+  <p class="menue-kontakt"><a href="tel:+41766209822">076 620 98 22</a><br>Blumenstrasse 37, 4900 Langenthal</p>
 </div>
 
 <main id="inhalt">
@@ -662,13 +670,13 @@ p { margin: 0 0 1em; }
       </p>
       <p class="abzeichen auftakt" style="--i:0">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4.5a2.5 2.5 0 0 0 2.6 3M17 6h2.5a2.5 2.5 0 0 1-2.6 3M12 13v4M8.5 20h7M9.5 17h5"/></svg>
-        Europa- &amp; Weltmeisterschaften 2022–2025
+        11 Siege an Europa- &amp; Weltmeisterschaften
       </p>
       <h1>
         <span class="zeile"><span style="--i:1">Nägel wie</span></span>
         <span class="zeile"><span style="--i:2"><em>im Wettkampf</em></span></span>
       </h1>
-      <p class="einleitung auftakt" style="--i:4">Modellage, Russische Maniküre und handgemalte Nailart – mit der Präzision aus meinen internationalen Wettkämpfen und der Ruhe meines kleinen Studios an der Spitalgasse im Langenthal.</p>
+      <p class="einleitung auftakt" style="--i:4">Modellage, Russische Maniküre und handgemalte Nailart – mit der Präzision aus meinen internationalen Wettkämpfen und der Ruhe meines kleinen Studios an der Blumenstrasse im Langenthal.</p>
       <div class="kopf-knoepfe auftakt" style="--i:5">
         <a class="knopf knopf-voll" href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">
           Termin buchen
@@ -726,32 +734,51 @@ p { margin: 0 0 1em; }
       <p class="einleitung rv" style="--i:2">Von 2022 bis 2025 habe ich an Europa- und Weltmeisterschaften teilgenommen – nicht für die Pokale, sondern um mich selbst herauszufordern. Diese Genauigkeit spüren Sie bei jedem Termin.</p>
     </div>
 
+    <!-- Platzierungen gemäss Mail von Joanna, 29.9.2026 -->
     <div class="pokale">
       <article class="pokal rv" style="--i:0">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 8h20v8a10 10 0 0 1-20 0V8Z"/><path d="M14 11H9a5 5 0 0 0 5.5 6M34 11h5a5 5 0 0 1-5.5 6M24 26v8M17 41h14M19 34h10v7H19z"/></svg>
-        <h3>Babyboomer</h3>
-        <p>Der weiche Farbverlauf von Rosé zu Weiss – natürlich und zeitlos.</p>
+        <div class="pokal-kopf"><span class="jahr">2022</span><div><h3>Europameisterschaft</h3></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Babyboomer Painting Art</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Stiletto with Decorations</span></li>
+          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Leopard Nails</span></li>
+        </ul>
       </article>
       <article class="pokal rv" style="--i:1">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 8h20v8a10 10 0 0 1-20 0V8Z"/><path d="M14 11H9a5 5 0 0 0 5.5 6M34 11h5a5 5 0 0 1-5.5 6M24 26v8M17 41h14M19 34h10v7H19z"/></svg>
-        <h3>Handgemalte Dekorationen</h3>
-        <p>Feine Motive, von Hand gemalt – jedes Set ein Einzelstück.</p>
+        <div class="pokal-kopf"><span class="jahr">2023</span><div><h3>Global Beauty Brilliant Cup</h3><p>Weltmeisterschaft</p></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Wedding Day Nails</span></li>
+          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">French Glitter with Decorations</span></li>
+          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Summer Nails</span></li>
+          <li><span class="platz p4">4.<span class="unsichtbar"> Platz:</span></span><span lang="en">Red Nails Salon</span></li>
+        </ul>
       </article>
       <article class="pokal rv" style="--i:2">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 8h20v8a10 10 0 0 1-20 0V8Z"/><path d="M14 11H9a5 5 0 0 0 5.5 6M34 11h5a5 5 0 0 1-5.5 6M24 26v8M17 41h14M19 34h10v7H19z"/></svg>
-        <h3>Konstruktion French</h3>
-        <p>Die klassische French-Linie, millimetergenau aufgebaut.</p>
+        <div class="pokal-kopf"><span class="jahr">2024</span><div><h3>Golden World Cup</h3><p>Dubai</p></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Salon Red Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Salon French Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">4 Tips Cartoon</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Poster Wedding Day Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Rainbow Nails</span></li>
+        </ul>
       </article>
       <article class="pokal rv" style="--i:3">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 8h20v8a10 10 0 0 1-20 0V8Z"/><path d="M14 11H9a5 5 0 0 0 5.5 6M34 11h5a5 5 0 0 1-5.5 6M24 26v8M17 41h14M19 34h10v7H19z"/></svg>
-        <h3>Fantasy French</h3>
-        <p>Die French neu gedacht – mit Farbe, Form und Fantasie.</p>
+        <div class="pokal-kopf"><span class="jahr">2025</span><div><h3>Brilliant Cup</h3></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Stiletto Red Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Extreme Square Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Wedding Day Nails</span></li>
+          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">Babyboomer Salon Nails</span></li>
+          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">Almond French Glitter Nails</span></li>
+          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Oval Nails</span></li>
+        </ul>
       </article>
     </div>
 
     <div class="zahlen">
-      <div class="zahl rv" style="--i:0"><b data-zahl="4">4</b><span>Jahre Wettkampf</span></div>
-      <div class="zahl rv" style="--i:1"><b data-zahl="4">4</b><span>Kategorien</span></div>
+      <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Siege</span></div>
+      <div class="zahl rv" style="--i:1"><b data-zahl="17">17</b><span>Podestplätze</span></div>
       <div class="zahl rv" style="--i:2"><b data-zahl="5" data-komma="1">5,0</b><span>Sterne</span></div>
       <div class="zahl rv" style="--i:3"><b data-zahl="89">89</b><span>Bewertungen</span></div>
     </div>
@@ -815,7 +842,7 @@ p { margin: 0 0 1em; }
         <h2 class="titel rv" id="preise-h" style="--i:1">Klar und <em>fair</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
-      <p class="einleitung rv" style="--i:2">Alle Preise in Franken, Endpreise ohne Zuschläge. Welche Grösse passt, besprechen wir gemeinsam – Form, Farbe und Technik stimmen wir auf Sie ab.</p>
+      <p class="einleitung rv" style="--i:2">Alle Preise in Franken, bar bezahlt ohne Zuschläge. Welche Grösse passt, besprechen wir gemeinsam – Form, Farbe und Technik stimmen wir auf Sie ab.</p>
     </div>
 
     <div class="reiter rv" role="tablist" aria-label="Kategorien">
@@ -932,7 +959,7 @@ p { margin: 0 0 1em; }
     </div>
 
     <div class="preise-fuss rv">
-      <p>Freie Termine sehen und direkt buchen – rund um die Uhr über Treatwell.<br>Bezahlen im Studio: bar oder mit Twint.</p>
+      <p>Freie Termine sehen und direkt buchen – rund um die Uhr über Treatwell.<br>Bezahlen im Studio: bar oder mit Twint (plus 2.– Gebühr).</p>
       <a class="knopf knopf-voll" href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">
         Termin buchen
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1033,7 +1060,7 @@ p { margin: 0 0 1em; }
       </details>
       <details class="frage rv">
         <summary>Wie kann ich bezahlen?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>Direkt im Studio, bar oder mit Twint.</p></div>
+        <div class="antwort"><p>Direkt im Studio, bar oder mit Twint. Bei Twint kommen 2 Franken Gebühr dazu.</p></div>
       </details>
       <details class="frage rv">
         <summary>In welchen Sprachen kann ich mich beraten lassen?<span class="plus" aria-hidden="true"></span></summary>
@@ -1064,7 +1091,7 @@ p { margin: 0 0 1em; }
         <h2 class="titel rv" id="kontakt-h" style="--i:1">Mitten im <em>Langenthal</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
-      <p class="einleitung rv" style="--i:2">Mein Studio liegt an der Spitalgasse, zwei Gehminuten von der Bushaltestelle Langenthal Tell.</p>
+      <p class="einleitung rv" style="--i:2">Ab Mitte November finden Sie mein Studio an der neuen Adresse: Blumenstrasse 37 im Langenthal.</p>
     </div>
 
     <div class="kontakt-raster">
@@ -1086,7 +1113,7 @@ p { margin: 0 0 1em; }
         <ul class="kontakt-liste">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            <div><span class="etikett">Adresse</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Spitalgasse+10%2C+4900+Langenthal" target="_blank" rel="noopener">Spitalgasse 10, 4900 Langenthal</a></div>
+            <div><span class="etikett">Adresse</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Blumenstrasse+37%2C+4900+Langenthal" target="_blank" rel="noopener">Blumenstrasse 37, 4900 Langenthal</a></div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
@@ -1126,7 +1153,7 @@ p { margin: 0 0 1em; }
       </ul>
     </div>
     <div class="fuss-unten">
-      <p>Spitalgasse 10, 4900 Langenthal · <a href="rechtliches.html">Impressum &amp; Datenschutz</a> · <a href="https://www.instagram.com/nailed_byjoanna/" target="_blank" rel="noopener">Instagram</a> · <a href="en/" hreflang="en" lang="en">English</a></p>
+      <p>Blumenstrasse 37, 4900 Langenthal · <a href="rechtliches.html">Impressum &amp; Datenschutz</a> · <a href="https://www.instagram.com/nailed_byjoanna/" target="_blank" rel="noopener">Instagram</a> · <a href="en/" hreflang="en" lang="en">English</a></p>
       <p>© <span id="jahr">2026</span> Nailed by Joanna Förster</p>
     </div>
   </div>
