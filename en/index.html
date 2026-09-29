@@ -267,15 +267,6 @@ p { margin: 0 0 1em; }
 .siegel .kreis-text { animation: drehen 28s linear infinite; transform-origin: 56px 56px; }
 @keyframes drehen { to { transform: rotate(360deg); } }
 
-.scroll-hinweis {
-  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
-  width: 1px; height: 54px; background: rgba(184,149,90,.3); overflow: hidden;
-}
-.scroll-hinweis::after {
-  content: ""; position: absolute; inset: 0; background: var(--gold);
-  transform: translateY(-100%); animation: fallen 2.4s var(--ease-in-out) infinite;
-}
-@keyframes fallen { 60%, 100% { transform: translateY(100%); } }
 
 @media (max-width: 900px) {
   .kopf { min-height: 0; padding-top: 112px; }
@@ -283,7 +274,6 @@ p { margin: 0 0 1em; }
   .kopf-bild { justify-self: center; width: min(86%, 400px); margin-top: 12px; }
   .kopf-bild .siegel { left: -18px; width: 104px; height: 104px; }
   .siegel svg { width: 94px; height: 94px; }
-  .scroll-hinweis { display: none; }
 }
 
 
@@ -751,7 +741,6 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
       </div>
     </div>
   </div>
-  <span class="scroll-hinweis" aria-hidden="true"></span>
 </section>
 
 <!-- ============ Laufband ============ -->
