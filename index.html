@@ -389,6 +389,15 @@ p { margin: 0 0 1em; }
 /* Zugeklappt: nur die ersten Reihen; der runde Pfeil klappt auf und zu */
 .galerie-huelle { position: relative; }
 .js .galerie-huelle { overflow: hidden; transition: max-height .7s var(--ease-in-out); }
+/* Zugeklappt: unten leicht verschwommen und aufgehellt (sanfter als früher) */
+.galerie-huelle::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; pointer-events: none;
+  background: linear-gradient(rgba(244,236,225,0), rgba(244,236,225,.7));
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(transparent, #000 70%); mask-image: linear-gradient(transparent, #000 70%);
+  opacity: 0; transition: opacity .5s;
+}
+.galerie-huelle.zu::after { opacity: 1; }
 .mehr {
   display: grid; place-items: center; width: 56px; height: 56px; margin: 8px auto 0; padding: 0;
   border: 1px solid var(--text); border-radius: 50%; background: var(--text); color: var(--creme);
