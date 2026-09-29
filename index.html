@@ -616,12 +616,14 @@ p { margin: 0 0 1em; }
 /* Auftakt im Kopfbereich */
 .js .kopf .auftakt { opacity: 0; transform: translateY(18px); animation: auftakt 1s var(--ease-out) forwards; animation-delay: calc(.25s + var(--i, 0) * 110ms); }
 .js .kopf h1 .zeile > span { transform: translateY(110%); animation: hoch 1.1s var(--ease-out) forwards; animation-delay: calc(.2s + var(--i, 0) * 120ms); }
-.js .kopf .bogen { clip-path: inset(100% 0 0 0 round 999px 999px 6px 6px); animation: aufdecken 1.4s var(--ease-in-out) .3s forwards; }
+.js .kopf .bogen { clip-path: inset(100% 0 0 0); animation: aufdecken 1s var(--ease-in-out) .15s forwards; }
+/* Nach dem Aufdecken clip-path ganz entfernen: Safari liess das Bild sonst manchmal unten abgeschnitten */
+.js .kopf .bogen.fertig { clip-path: none; animation: none; }
 .js .kopf-bild::before { opacity: 0; transform: translate(10px, -10px); animation: auftakt 1.2s var(--ease-out) 1.1s forwards; }
 .kopf .bogen img { animation: kenburns 22s ease-in-out infinite alternate; transform-origin: 60% 40%; }
 @keyframes auftakt { to { opacity: 1; transform: none; } }
 @keyframes hoch { to { transform: none; } }
-@keyframes aufdecken { to { clip-path: inset(0 0 0 0 round 999px 999px 6px 6px); } }
+@keyframes aufdecken { to { clip-path: inset(0); } }
 @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12); } }
 
 /* ---------- PC: enger zusammen (Wunsch Maurice 26.9.) ---------- */
@@ -755,89 +757,6 @@ p { margin: 0 0 1em; }
     <span>Babyboomer</span><span>Handgemalte Nailart</span><span>Konstruktion French</span><span>Fantasy French</span><span>Russische Maniküre</span><span>Gel &amp; Acrylgel</span>
   </div>
 </div>
-
-<!-- ============ Auszeichnungen ============ -->
-<section class="abschnitt" id="titel" aria-labelledby="titel-h">
-  <div class="wrap">
-    <div class="titel-kopf">
-      <div>
-        <p class="oben rv">Wettkämpfe</p>
-        <h2 class="titel rv" id="titel-h" style="--i:1">Auf <em>internationaler</em> Bühne</h2>
-        <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
-      </div>
-      <p class="einleitung rv" style="--i:2">Von 2022 bis 2025 habe ich an Europa- und Weltmeisterschaften teilgenommen – nicht für die Pokale, sondern um mich selbst herauszufordern. Diese Genauigkeit spüren Sie bei jedem Termin.</p>
-    </div>
-
-    <!-- Platzierungen gemäss Mail von Joanna, 29.9.2026 -->
-    <div class="pokale">
-      <article class="pokal rv" style="--i:0">
-        <div class="pokal-kopf"><span class="jahr">2022</span><div><h3>Europameisterschaft</h3></div></div>
-        <ul class="plaetze">
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Babyboomer Painting Art</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Stiletto with Decorations</span></li>
-          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Leopard Nails</span></li>
-        </ul>
-      </article>
-      <article class="pokal rv" style="--i:1">
-        <div class="pokal-kopf"><span class="jahr">2023</span><div><h3>Global Beauty Brilliant Cup</h3><p>Weltmeisterschaft</p></div></div>
-        <ul class="plaetze">
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Wedding Day Nails</span></li>
-          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">French Glitter with Decorations</span></li>
-          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Summer Nails</span></li>
-          <li><span class="platz p4">4.<span class="unsichtbar"> Platz:</span></span><span lang="en">Red Nails Salon</span></li>
-        </ul>
-      </article>
-      <article class="pokal rv" style="--i:2">
-        <div class="pokal-kopf"><span class="jahr">2024</span><div><h3>Golden World Cup</h3><p>Dubai</p></div></div>
-        <ul class="plaetze">
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Salon Red Nails</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Salon French Nails</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">4 Tips Cartoon</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Poster Wedding Day Nails</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Rainbow Nails</span></li>
-        </ul>
-      </article>
-      <article class="pokal rv" style="--i:3">
-        <div class="pokal-kopf"><span class="jahr">2025</span><div><h3>Brilliant Cup</h3></div></div>
-        <ul class="plaetze">
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Stiletto Red Nails</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Extreme Square Nails</span></li>
-          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Wedding Day Nails</span></li>
-          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">Babyboomer Salon Nails</span></li>
-          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">Almond French Glitter Nails</span></li>
-          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Oval Nails</span></li>
-        </ul>
-      </article>
-    </div>
-
-    <!-- Urkunden: bilder/web/urkunde-NN-800|1600, Fotos von Joanna (ohne EXIF) -->
-    <div class="urkunden-kopf rv"><h3>Die Urkunden</h3><p id="urkunden-hinweis">Zum Vergrössern antippen</p></div>
-    <div class="urkunden-huelle" id="urkunden-huelle">
-    <div class="urkunden" id="urkunden">
-      <a class="rv" style="--i:0" href="bilder/web/urkunde-01-1600.jpg" data-text="Europameisterschaft · 1. Platz · Babyboomer Painting Art"><picture><source type="image/webp" srcset="bilder/web/urkunde-01-800.webp"><img src="bilder/web/urkunde-01-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Urkunde Europameisterschaft: 1. Platz, Babyboomer Painting Art"></picture></a>
-      <a class="rv" style="--i:1" href="bilder/web/urkunde-02-1600.jpg" data-text="Europameisterschaft · 1. Platz · Stiletto with Decorations"><picture><source type="image/webp" srcset="bilder/web/urkunde-02-800.webp"><img src="bilder/web/urkunde-02-800.jpg" width="800" height="558" loading="lazy" decoding="async" alt="Urkunde Europameisterschaft: 1. Platz, Stiletto with Decorations"></picture></a>
-      <a class="rv" style="--i:2" href="bilder/web/urkunde-03-1600.jpg" data-text="Europameisterschaft · 3. Platz · Leopard Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-03-800.webp"><img src="bilder/web/urkunde-03-800.jpg" width="800" height="574" loading="lazy" decoding="async" alt="Urkunde Europameisterschaft: 3. Platz, Leopard Nails"></picture></a>
-      <a class="rv" style="--i:3" href="bilder/web/urkunde-04-1600.jpg" data-text="Global Beauty Brilliant Cup · 1. Platz · Wedding Day Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-04-800.webp"><img src="bilder/web/urkunde-04-800.jpg" width="800" height="571" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 1. Platz, Wedding Day Nails"></picture></a>
-      <a class="rv" style="--i:4" href="bilder/web/urkunde-05-1600.jpg" data-text="Global Beauty Brilliant Cup · 2. Platz · French Glitter with Decorations"><picture><source type="image/webp" srcset="bilder/web/urkunde-05-800.webp"><img src="bilder/web/urkunde-05-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 2. Platz, French Glitter with Decorations"></picture></a>
-      <a class="rv" style="--i:5" href="bilder/web/urkunde-06-1600.jpg" data-text="Global Beauty Brilliant Cup · 3. Platz · Summer Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-06-800.webp"><img src="bilder/web/urkunde-06-800.jpg" width="800" height="563" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 3. Platz, Summer Nails"></picture></a>
-      <a class="rv" style="--i:0" href="bilder/web/urkunde-07-1600.jpg" data-text="Global Beauty Brilliant Cup · 4. Platz · Red Nails Salon"><picture><source type="image/webp" srcset="bilder/web/urkunde-07-800.webp"><img src="bilder/web/urkunde-07-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 4. Platz, Red Nails Salon"></picture></a>
-      <a class="rv" style="--i:1" href="bilder/web/urkunde-08-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Salon Red Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-08-800.webp"><img src="bilder/web/urkunde-08-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Salon Red Nails"></picture></a>
-      <a class="rv" style="--i:2" href="bilder/web/urkunde-09-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Salon French Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-09-800.webp"><img src="bilder/web/urkunde-09-800.jpg" width="800" height="564" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Salon French Nails"></picture></a>
-      <a class="rv" style="--i:3" href="bilder/web/urkunde-10-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · 4 Tips Cartoon"><picture><source type="image/webp" srcset="bilder/web/urkunde-10-800.webp"><img src="bilder/web/urkunde-10-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, 4 Tips Cartoon"></picture></a>
-      <a class="rv" style="--i:4" href="bilder/web/urkunde-11-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Poster Wedding Day Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-11-800.webp"><img src="bilder/web/urkunde-11-800.jpg" width="800" height="550" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Poster Wedding Day Nails"></picture></a>
-      <a class="rv" style="--i:5" href="bilder/web/urkunde-12-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Rainbow Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-12-800.webp"><img src="bilder/web/urkunde-12-800.jpg" width="800" height="554" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Rainbow Nails"></picture></a>
-    </div>
-    </div>
-    <div class="mehr-leiste"><button class="mehr mehr-urkunden" id="mehr-urkunden" type="button" aria-expanded="false" aria-controls="urkunden-huelle" hidden><span class="mehr-text">Urkunden zeigen</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button></div>
-
-    <div class="zahlen">
-      <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Siege</span></div>
-      <div class="zahl rv" style="--i:1"><b data-zahl="17">17</b><span>Podestplätze</span></div>
-      <div class="zahl rv" style="--i:2"><b data-zahl="5" data-komma="1">5,0</b><span>Sterne</span></div>
-      <div class="zahl rv" style="--i:3"><b data-zahl="89">89</b><span>Bewertungen</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ Arbeiten ============ -->
 <section class="abschnitt dunkel-beige" id="arbeiten" aria-labelledby="arbeiten-h">
@@ -1022,28 +941,6 @@ p { margin: 0 0 1em; }
   </div>
 </section>
 
-<!-- ============ Über mich ============ -->
-<section class="abschnitt dunkel-beige" id="ueber" aria-labelledby="ueber-h">
-  <div class="wrap ueber">
-    <div class="ueber-bild rv">
-      <div class="rahmen">
-        <picture>
-          <source type="image/webp" srcset="bilder/web/ueber-800.webp 800w, bilder/web/ueber-1200.webp 1200w" sizes="(max-width: 860px) 84vw, 460px">
-          <img src="bilder/web/ueber-800.jpg" srcset="bilder/web/ueber-800.jpg 800w, bilder/web/ueber-1200.jpg 1200w" sizes="(max-width: 860px) 84vw, 460px" width="800" height="866" loading="lazy" decoding="async" alt="Nude-Nägel mit handgemalten Blüten">
-        </picture>
-      </div>
-    </div>
-    <div>
-      <p class="oben rv">Über mich</p>
-      <h2 class="titel rv" id="ueber-h" style="--i:1">Vom Hobby zur <em>Berufung</em></h2>
-      <blockquote class="zitat rv" style="--i:2">«Ich liebe es, Frauen zu verschönern und ihnen ein gutes Gefühl zu geben.»</blockquote>
-      <p class="rv" style="--i:3">Angefangen hat alles ganz einfach: Ich habe mir aus Interesse selbst die Nägel gemacht. Sehr schnell wurde daraus eine grosse Freude, dann eine Leidenschaft und schliesslich meine Berufung.</p>
-      <p class="rv" style="--i:4">Diese Begeisterung hat mich dazu gebracht, mich selbstständig zu machen und mein eigenes Studio im Langenthal zu eröffnen. Hier nehme ich mir Zeit für jede Kundin – für gute Gespräche und für Nägel, die lange schön bleiben.</p>
-      <p class="unterschrift rv" style="--i:5">Joanna Förster</p>
-    </div>
-  </div>
-</section>
-
 <!-- ============ Stimmen ============ -->
 <section class="abschnitt stimmen" id="stimmen" aria-labelledby="stimmen-h">
   <div class="wrap stimmen-innen">
@@ -1080,6 +977,111 @@ p { margin: 0 0 1em; }
       </button>
     </div>
     <p class="stimmen-quelle">5,0 von 5 Sternen aus 89 Bewertungen · <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">alle auf Treatwell lesen</a><br>Waren Sie schon bei mir? Über Ihre <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Bewertung auf Treatwell</a> freue ich mich.</p>
+  </div>
+</section>
+
+<!-- ============ Auszeichnungen ============ -->
+<section class="abschnitt" id="titel" aria-labelledby="titel-h">
+  <div class="wrap">
+    <div class="titel-kopf">
+      <div>
+        <p class="oben rv">Wettkämpfe</p>
+        <h2 class="titel rv" id="titel-h" style="--i:1">Auf <em>internationaler</em> Bühne</h2>
+        <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
+      </div>
+      <p class="einleitung rv" style="--i:2">Von 2022 bis 2025 habe ich an Europa- und Weltmeisterschaften teilgenommen – nicht für die Pokale, sondern um mich selbst herauszufordern. Diese Genauigkeit spüren Sie bei jedem Termin.</p>
+    </div>
+
+    <!-- Platzierungen gemäss Mail von Joanna, 29.9.2026 -->
+    <div class="pokale">
+      <article class="pokal rv" style="--i:0">
+        <div class="pokal-kopf"><span class="jahr">2022</span><div><h3>Europameisterschaft</h3></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Babyboomer Painting Art</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Stiletto with Decorations</span></li>
+          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Leopard Nails</span></li>
+        </ul>
+      </article>
+      <article class="pokal rv" style="--i:1">
+        <div class="pokal-kopf"><span class="jahr">2023</span><div><h3>Global Beauty Brilliant Cup</h3><p>Weltmeisterschaft</p></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Wedding Day Nails</span></li>
+          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">French Glitter with Decorations</span></li>
+          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Summer Nails</span></li>
+          <li><span class="platz p4">4.<span class="unsichtbar"> Platz:</span></span><span lang="en">Red Nails Salon</span></li>
+        </ul>
+      </article>
+      <article class="pokal rv" style="--i:2">
+        <div class="pokal-kopf"><span class="jahr">2024</span><div><h3>Golden World Cup</h3><p>Dubai</p></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Salon Red Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Salon French Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">4 Tips Cartoon</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Poster Wedding Day Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Rainbow Nails</span></li>
+        </ul>
+      </article>
+      <article class="pokal rv" style="--i:3">
+        <div class="pokal-kopf"><span class="jahr">2025</span><div><h3>Brilliant Cup</h3></div></div>
+        <ul class="plaetze">
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Stiletto Red Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Extreme Square Nails</span></li>
+          <li><span class="platz p1">1.<span class="unsichtbar"> Platz:</span></span><span lang="en">Wedding Day Nails</span></li>
+          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">Babyboomer Salon Nails</span></li>
+          <li><span class="platz p2">2.<span class="unsichtbar"> Platz:</span></span><span lang="en">Almond French Glitter Nails</span></li>
+          <li><span class="platz p3">3.<span class="unsichtbar"> Platz:</span></span><span lang="en">Oval Nails</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Urkunden: bilder/web/urkunde-NN-800|1600, Fotos von Joanna (ohne EXIF) -->
+    <div class="urkunden-kopf rv"><h3>Die Urkunden</h3><p id="urkunden-hinweis">Zum Vergrössern antippen</p></div>
+    <div class="urkunden-huelle" id="urkunden-huelle">
+    <div class="urkunden" id="urkunden">
+      <a class="rv" style="--i:0" href="bilder/web/urkunde-01-1600.jpg" data-text="Europameisterschaft · 1. Platz · Babyboomer Painting Art"><picture><source type="image/webp" srcset="bilder/web/urkunde-01-800.webp"><img src="bilder/web/urkunde-01-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Urkunde Europameisterschaft: 1. Platz, Babyboomer Painting Art"></picture></a>
+      <a class="rv" style="--i:1" href="bilder/web/urkunde-02-1600.jpg" data-text="Europameisterschaft · 1. Platz · Stiletto with Decorations"><picture><source type="image/webp" srcset="bilder/web/urkunde-02-800.webp"><img src="bilder/web/urkunde-02-800.jpg" width="800" height="558" loading="lazy" decoding="async" alt="Urkunde Europameisterschaft: 1. Platz, Stiletto with Decorations"></picture></a>
+      <a class="rv" style="--i:2" href="bilder/web/urkunde-03-1600.jpg" data-text="Europameisterschaft · 3. Platz · Leopard Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-03-800.webp"><img src="bilder/web/urkunde-03-800.jpg" width="800" height="574" loading="lazy" decoding="async" alt="Urkunde Europameisterschaft: 3. Platz, Leopard Nails"></picture></a>
+      <a class="rv" style="--i:3" href="bilder/web/urkunde-04-1600.jpg" data-text="Global Beauty Brilliant Cup · 1. Platz · Wedding Day Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-04-800.webp"><img src="bilder/web/urkunde-04-800.jpg" width="800" height="571" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 1. Platz, Wedding Day Nails"></picture></a>
+      <a class="rv" style="--i:4" href="bilder/web/urkunde-05-1600.jpg" data-text="Global Beauty Brilliant Cup · 2. Platz · French Glitter with Decorations"><picture><source type="image/webp" srcset="bilder/web/urkunde-05-800.webp"><img src="bilder/web/urkunde-05-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 2. Platz, French Glitter with Decorations"></picture></a>
+      <a class="rv" style="--i:5" href="bilder/web/urkunde-06-1600.jpg" data-text="Global Beauty Brilliant Cup · 3. Platz · Summer Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-06-800.webp"><img src="bilder/web/urkunde-06-800.jpg" width="800" height="563" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 3. Platz, Summer Nails"></picture></a>
+      <a class="rv" style="--i:0" href="bilder/web/urkunde-07-1600.jpg" data-text="Global Beauty Brilliant Cup · 4. Platz · Red Nails Salon"><picture><source type="image/webp" srcset="bilder/web/urkunde-07-800.webp"><img src="bilder/web/urkunde-07-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Urkunde Global Beauty Brilliant Cup: 4. Platz, Red Nails Salon"></picture></a>
+      <a class="rv" style="--i:1" href="bilder/web/urkunde-08-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Salon Red Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-08-800.webp"><img src="bilder/web/urkunde-08-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Salon Red Nails"></picture></a>
+      <a class="rv" style="--i:2" href="bilder/web/urkunde-09-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Salon French Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-09-800.webp"><img src="bilder/web/urkunde-09-800.jpg" width="800" height="564" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Salon French Nails"></picture></a>
+      <a class="rv" style="--i:3" href="bilder/web/urkunde-10-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · 4 Tips Cartoon"><picture><source type="image/webp" srcset="bilder/web/urkunde-10-800.webp"><img src="bilder/web/urkunde-10-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, 4 Tips Cartoon"></picture></a>
+      <a class="rv" style="--i:4" href="bilder/web/urkunde-11-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Poster Wedding Day Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-11-800.webp"><img src="bilder/web/urkunde-11-800.jpg" width="800" height="550" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Poster Wedding Day Nails"></picture></a>
+      <a class="rv" style="--i:5" href="bilder/web/urkunde-12-1600.jpg" data-text="Golden World Cup Dubai · 1. Platz · Rainbow Nails"><picture><source type="image/webp" srcset="bilder/web/urkunde-12-800.webp"><img src="bilder/web/urkunde-12-800.jpg" width="800" height="554" loading="lazy" decoding="async" alt="Urkunde Golden World Cup Dubai: 1. Platz, Rainbow Nails"></picture></a>
+    </div>
+    </div>
+    <div class="mehr-leiste"><button class="mehr mehr-urkunden" id="mehr-urkunden" type="button" aria-expanded="false" aria-controls="urkunden-huelle" hidden><span class="mehr-text">Urkunden zeigen</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button></div>
+
+    <div class="zahlen">
+      <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Siege</span></div>
+      <div class="zahl rv" style="--i:1"><b data-zahl="17">17</b><span>Podestplätze</span></div>
+      <div class="zahl rv" style="--i:2"><b data-zahl="5" data-komma="1">5,0</b><span>Sterne</span></div>
+      <div class="zahl rv" style="--i:3"><b data-zahl="89">89</b><span>Bewertungen</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Über mich ============ -->
+<section class="abschnitt dunkel-beige" id="ueber" aria-labelledby="ueber-h">
+  <div class="wrap ueber">
+    <div class="ueber-bild rv">
+      <div class="rahmen">
+        <picture>
+          <source type="image/webp" srcset="bilder/web/ueber-800.webp 800w, bilder/web/ueber-1200.webp 1200w" sizes="(max-width: 860px) 84vw, 460px">
+          <img src="bilder/web/ueber-800.jpg" srcset="bilder/web/ueber-800.jpg 800w, bilder/web/ueber-1200.jpg 1200w" sizes="(max-width: 860px) 84vw, 460px" width="800" height="866" loading="lazy" decoding="async" alt="Nude-Nägel mit handgemalten Blüten">
+        </picture>
+      </div>
+    </div>
+    <div>
+      <p class="oben rv">Über mich</p>
+      <h2 class="titel rv" id="ueber-h" style="--i:1">Vom Hobby zur <em>Berufung</em></h2>
+      <blockquote class="zitat rv" style="--i:2">«Ich liebe es, Frauen zu verschönern und ihnen ein gutes Gefühl zu geben.»</blockquote>
+      <p class="rv" style="--i:3">Angefangen hat alles ganz einfach: Ich habe mir aus Interesse selbst die Nägel gemacht. Sehr schnell wurde daraus eine grosse Freude, dann eine Leidenschaft und schliesslich meine Berufung.</p>
+      <p class="rv" style="--i:4">Diese Begeisterung hat mich dazu gebracht, mich selbstständig zu machen und mein eigenes Studio im Langenthal zu eröffnen. Hier nehme ich mir Zeit für jede Kundin – für gute Gespräche und für Nägel, die lange schön bleiben.</p>
+      <p class="unterschrift rv" style="--i:5">Joanna Förster</p>
+    </div>
   </div>
 </section>
 
@@ -1233,6 +1235,11 @@ p { margin: 0 0 1em; }
 (function () {
   "use strict";
   document.documentElement.classList.add("js");
+  /* Bogen oben: nach dem Aufdecken (oder spätestens nach 1.6 s) sicher ganz zeigen */
+  var bogen = document.querySelector(".kopf .bogen");
+  function bogenFertig() { bogen.classList.add("fertig"); }
+  bogen.addEventListener("animationend", function (e) { if (e.target === bogen) bogenFertig(); });
+  setTimeout(bogenFertig, 1600);
   var ruhig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* Neu aufgerufen (Adresse eingetippt oder Link): immer oben beginnen, auch mit #preise o. ä. in der Adresse.
