@@ -328,6 +328,17 @@ p { margin: 0 0 1em; }
   .plaetze li { font-size: 14.5px; }
 }
 
+/* Urkunden unter den Jahreskarten */
+.urkunden-kopf { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; margin: clamp(48px, 6vw, 72px) 0 20px; }
+.urkunden-kopf h3 { font-size: 22px; margin: 0; }
+.urkunden-kopf p { margin: 0; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-leise); }
+.urkunden { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.urkunden a { display: block; aspect-ratio: 10 / 7; overflow: hidden; border-radius: 3px; background: var(--beige-dunkel); box-shadow: 0 1px 3px rgba(33,27,22,.12); }
+.urkunden img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
+.urkunden a:hover img { transform: scale(1.05); }
+@media (max-width: 900px) { .urkunden { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 560px) { .urkunden { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
+
 .zahlen {
   display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(56px, 8vw, 96px);
   border-top: 1px solid rgba(184,149,90,.4);
@@ -777,6 +788,23 @@ p { margin: 0 0 1em; }
       </article>
     </div>
 
+    <!-- Urkunden: bilder/web/urkunde-NN-800|1600, Fotos von Joanna (ohne EXIF) -->
+    <div class="urkunden-kopf rv"><h3>The certificates</h3><p>Tap to enlarge</p></div>
+    <div class="urkunden" id="urkunden">
+      <a class="rv" style="--i:0" href="../bilder/web/urkunde-01-1600.jpg" data-text="European Championship · Place 1 · Babyboomer Painting Art"><picture><source type="image/webp" srcset="../bilder/web/urkunde-01-800.webp"><img src="../bilder/web/urkunde-01-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Certificate, European Championship: place 1, Babyboomer Painting Art"></picture></a>
+      <a class="rv" style="--i:1" href="../bilder/web/urkunde-02-1600.jpg" data-text="European Championship · Place 1 · Stiletto with Decorations"><picture><source type="image/webp" srcset="../bilder/web/urkunde-02-800.webp"><img src="../bilder/web/urkunde-02-800.jpg" width="800" height="558" loading="lazy" decoding="async" alt="Certificate, European Championship: place 1, Stiletto with Decorations"></picture></a>
+      <a class="rv" style="--i:2" href="../bilder/web/urkunde-03-1600.jpg" data-text="European Championship · Place 3 · Leopard Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-03-800.webp"><img src="../bilder/web/urkunde-03-800.jpg" width="800" height="574" loading="lazy" decoding="async" alt="Certificate, European Championship: place 3, Leopard Nails"></picture></a>
+      <a class="rv" style="--i:3" href="../bilder/web/urkunde-04-1600.jpg" data-text="Global Beauty Brilliant Cup · Place 1 · Wedding Day Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-04-800.webp"><img src="../bilder/web/urkunde-04-800.jpg" width="800" height="571" loading="lazy" decoding="async" alt="Certificate, Global Beauty Brilliant Cup: place 1, Wedding Day Nails"></picture></a>
+      <a class="rv" style="--i:4" href="../bilder/web/urkunde-05-1600.jpg" data-text="Global Beauty Brilliant Cup · Place 2 · French Glitter with Decorations"><picture><source type="image/webp" srcset="../bilder/web/urkunde-05-800.webp"><img src="../bilder/web/urkunde-05-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Certificate, Global Beauty Brilliant Cup: place 2, French Glitter with Decorations"></picture></a>
+      <a class="rv" style="--i:5" href="../bilder/web/urkunde-06-1600.jpg" data-text="Global Beauty Brilliant Cup · Place 3 · Summer Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-06-800.webp"><img src="../bilder/web/urkunde-06-800.jpg" width="800" height="563" loading="lazy" decoding="async" alt="Certificate, Global Beauty Brilliant Cup: place 3, Summer Nails"></picture></a>
+      <a class="rv" style="--i:0" href="../bilder/web/urkunde-07-1600.jpg" data-text="Global Beauty Brilliant Cup · Place 4 · Red Nails Salon"><picture><source type="image/webp" srcset="../bilder/web/urkunde-07-800.webp"><img src="../bilder/web/urkunde-07-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Certificate, Global Beauty Brilliant Cup: place 4, Red Nails Salon"></picture></a>
+      <a class="rv" style="--i:1" href="../bilder/web/urkunde-08-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · Salon Red Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-08-800.webp"><img src="../bilder/web/urkunde-08-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, Salon Red Nails"></picture></a>
+      <a class="rv" style="--i:2" href="../bilder/web/urkunde-09-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · Salon French Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-09-800.webp"><img src="../bilder/web/urkunde-09-800.jpg" width="800" height="564" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, Salon French Nails"></picture></a>
+      <a class="rv" style="--i:3" href="../bilder/web/urkunde-10-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · 4 Tips Cartoon"><picture><source type="image/webp" srcset="../bilder/web/urkunde-10-800.webp"><img src="../bilder/web/urkunde-10-800.jpg" width="800" height="562" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, 4 Tips Cartoon"></picture></a>
+      <a class="rv" style="--i:4" href="../bilder/web/urkunde-11-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · Poster Wedding Day Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-11-800.webp"><img src="../bilder/web/urkunde-11-800.jpg" width="800" height="550" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, Poster Wedding Day Nails"></picture></a>
+      <a class="rv" style="--i:5" href="../bilder/web/urkunde-12-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · Rainbow Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-12-800.webp"><img src="../bilder/web/urkunde-12-800.jpg" width="800" height="554" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, Rainbow Nails"></picture></a>
+    </div>
+
     <div class="zahlen">
       <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Wins</span></div>
       <div class="zahl rv" style="--i:1"><b data-zahl="17">17</b><span>Podium places</span></div>
@@ -949,11 +977,11 @@ p { margin: 0 0 1em; }
         </div>
         <div class="gruppe">
           <h3>More treatments</h3>
-          <p class="hinweis">Happy to tell you the price by phone, email or when you book</p>
           <ul class="preise">
-            <li><span class="name">Lash and brow lift</span><span class="punkte"></span><span class="preis frage-preis">on request</span></li>
-            <li><span class="name">Spray tan</span><span class="punkte"></span><span class="preis frage-preis">on request</span></li>
-            <li><span class="name">Cosmetic teeth whitening</span><span class="punkte"></span><span class="preis frage-preis">on request</span></li>
+            <li><span><span class="name">Lash lift with tint</span><span class="dauer">1 h</span></span><span class="punkte"></span><span class="preis">65.–</span></li>
+            <li><span><span class="name">Brow lift with tint</span><span class="dauer">1 h</span></span><span class="punkte"></span><span class="preis">65.–</span></li>
+            <li><span><span class="name">Spray tan</span><span class="dauer">1 h</span></span><span class="punkte"></span><span class="preis">65.–</span></li>
+            <li><span><span class="name">Cosmetic teeth whitening</span><span class="dauer">1 h</span></span><span class="punkte"></span><span class="preis">90.–</span></li>
           </ul>
         </div>
       </div>
@@ -1057,7 +1085,11 @@ p { margin: 0 0 1em; }
       </details>
       <details class="frage rv">
         <summary>What if I need to cancel?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>Please cancel at least 24 hours in advance – on Treatwell or by email. That way another client can take the slot. For later cancellations or no-shows I may charge half the price. If you are more than 15 minutes late, the treatment may have to be shortened.</p></div>
+        <div class="antwort"><p>You can cancel up to 24 hours before your appointment – on Treatwell, by phone or by email. For later cancellations I charge 50% of the booked treatment, for no-shows 100%.</p><p>If you are 10 minutes late or more, I decide whether the design you asked for is still possible. From 20 minutes late I can't do the treatment any more and charge the full price.</p></div>
+      </details>
+      <details class="frage rv">
+        <summary>Anything else I should know?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="antwort"><p>For extra designs, French or hand-painted decorations, please book at least 30 minutes extra – otherwise there isn't enough time. Please report any complaints within 7 days; mechanical damage and damage you caused yourself are not covered. Unfortunately pets and small children can't come along to the studio.</p><p>By booking you accept my <a href="../rechtliches.html#agb" hreflang="de">terms and conditions</a> (in German).</p></div>
       </details>
       <details class="frage rv">
         <summary>How can I pay?<span class="plus" aria-hidden="true"></span></summary>
@@ -1350,14 +1382,15 @@ p { margin: 0 0 1em; }
   var lbBild = document.getElementById("lb-bild");
   var lbText = document.getElementById("lb-text");
   var alleBilder = Array.prototype.slice.call(document.querySelectorAll("#galerie a[href]"));
-  var bilder = alleBilder.slice();
+  var galerieBilder = alleBilder.slice(), bilder = galerieBilder;
+  var urkunden = Array.prototype.slice.call(document.querySelectorAll("#urkunden a[href]"));
   var lbJetzt = 0, lbVorher = null, wischStart = null;
   function lbZeigen(i) {
     lbJetzt = (i + bilder.length) % bilder.length;
     var a = bilder[lbJetzt], img = a.querySelector("img");
     lbBild.src = a.getAttribute("href");
     lbBild.alt = img ? img.alt : "";
-    lbText.textContent = (lbJetzt + 1) + " / " + bilder.length;
+    lbText.textContent = (a.dataset.text ? a.dataset.text + "  ·  " : "") + (lbJetzt + 1) + " / " + bilder.length;
   }
   function lbOeffnen(i) {
     lbVorher = document.activeElement;
@@ -1373,7 +1406,8 @@ p { margin: 0 0 1em; }
     document.body.style.overflow = "";
     if (lbVorher) lbVorher.focus();
   }
-  alleBilder.forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); lbOeffnen(bilder.indexOf(a)); }); });
+  alleBilder.forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); bilder = galerieBilder; lbOeffnen(bilder.indexOf(a)); }); });
+  urkunden.forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); bilder = urkunden; lbOeffnen(urkunden.indexOf(a)); }); });
 
   /* Galerie-Filter: blendet Bilder aus, die Lightbox blättert nur durch die sichtbaren */
   /* Galerie legen: grösste Bilder zuerst in die kürzeste Spalte, damit alle Spalten fast gleich lang sind.
@@ -1454,7 +1488,7 @@ p { margin: 0 0 1em; }
     knopf.addEventListener("click", function () {
       var f = knopf.dataset.filter;
       alle.forEach(function (k) { k.setAttribute("aria-pressed", k === knopf); });
-      bilder = alleBilder.filter(function (a) {
+      bilder = galerieBilder = alleBilder.filter(function (a) {
         var zeigen = f === "alle" || a.dataset.kat.split(" ").indexOf(f) > -1;
         a.hidden = !zeigen;
         a.classList.add("da");
