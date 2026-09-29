@@ -565,8 +565,10 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
 .zeiten { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .zeiten th, .zeiten td { text-align: left; padding: 14px 0; border-bottom: 1px solid rgba(184,149,90,.22); font-weight: 400; }
 .zeiten td { text-align: right; }
-.zeiten tr.heute th, .zeiten tr.heute td { color: var(--gold-text); font-weight: 500; }
-.zeiten tr.heute th::after { content: " · heute"; font-size: 13px; }
+.zeiten tr.heute th, .zeiten tr.heute td { background: rgba(255,255,255,.75); color: var(--text); font-weight: 600; border-bottom-color: transparent; }
+.zeiten tr.heute th { padding-left: 16px; border-radius: 10px 0 0 10px; box-shadow: inset 3px 0 0 var(--gold); }
+.zeiten tr.heute td { padding-right: 16px; border-radius: 0 10px 10px 0; }
+.zeiten tr.heute th::after { content: "today"; display: inline-block; margin-left: 10px; padding: 5px 9px 4px; border-radius: 999px; background: var(--text); color: var(--creme); font: 600 10px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; vertical-align: 2px; }
 .zeiten .zu { color: var(--text-leise); }
 .kontakt-liste { list-style: none; margin: 0 0 36px; padding: 0; }
 .kontakt-liste li { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid rgba(184,149,90,.22); }
@@ -765,8 +767,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Work</p>
-        <h2 class="titel rv" id="arbeiten-h" style="--i:1">From the <em>studio</em></h2>
+        <p class="oben rv">From the studio</p>
+        <h2 class="titel rv" id="arbeiten-h" style="--i:1"><em>Work</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2">Eighteen sets from my studio – from delicate babyboomer to stiletto art. I make every set by hand and tailor it to the client.</p>
@@ -813,8 +815,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Treatments &amp; prices</p>
-        <h2 class="titel rv" id="preise-h" style="--i:1">Clear and <em>fair</em></h2>
+        <p class="oben rv">Clear and fair</p>
+        <h2 class="titel rv" id="preise-h" style="--i:1">Treatments &amp; <em>prices</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2">All prices in Swiss francs, no extra charges when paying cash. We decide the right size together – shape, colour and technique are tailored to you.</p>
@@ -987,8 +989,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Competitions</p>
-        <h2 class="titel rv" id="titel-h" style="--i:1">On the <em>international</em> stage</h2>
+        <p class="oben rv">On the international stage</p>
+        <h2 class="titel rv" id="titel-h" style="--i:1"><em>Competitions</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2">From 2022 to 2025 I competed at European and World Championships – not for the trophies, but to challenge myself. You can feel that precision at every appointment.</p>
@@ -1077,8 +1079,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
       </div>
     </div>
     <div>
-      <p class="oben rv">About me</p>
-      <h2 class="titel rv" id="ueber-h" style="--i:1">From hobby to <em>calling</em></h2>
+      <p class="oben rv">From hobby to calling</p>
+      <h2 class="titel rv" id="ueber-h" style="--i:1">About <em>me</em></h2>
       <blockquote class="zitat rv" style="--i:2">“I love making women beautiful and making them feel good.”</blockquote>
       <p class="rv" style="--i:3">It all started very simply: I did my own nails out of curiosity. That quickly became a great joy, then a passion and finally my calling.</p>
       <p class="rv" style="--i:4">That enthusiasm led me to go self-employed and open my own studio in Langenthal. Here I take time for every client – for good conversation and for nails that stay beautiful for a long time.</p>
@@ -1091,8 +1093,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
 <section class="abschnitt" id="fragen" aria-labelledby="fragen-h">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:clamp(40px,6vw,64px)">
-      <p class="oben rv">FAQ</p>
-      <h2 class="titel rv" id="fragen-h" style="--i:1">What clients <em>want to know</em></h2>
+      <p class="oben rv">What clients want to know</p>
+      <h2 class="titel rv" id="fragen-h" style="--i:1"><em>FAQ</em></h2>
       <svg class="zier mitte" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
     </div>
     <div class="fragen">
@@ -1141,8 +1143,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Contact</p>
-        <h2 class="titel rv" id="kontakt-h" style="--i:1">In the heart of <em>Langenthal</em></h2>
+        <p class="oben rv">In the heart of Langenthal</p>
+        <h2 class="titel rv" id="kontakt-h" style="--i:1"><em>Contact</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2" data-neu="You’ll find my studio at Blumenstrasse 37 in Langenthal.">My studio is still at Spitalgasse 10. From mid-November you’ll find me at the new address: Blumenstrasse 37 in Langenthal.</p>

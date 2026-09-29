@@ -564,8 +564,10 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
 .zeiten { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .zeiten th, .zeiten td { text-align: left; padding: 14px 0; border-bottom: 1px solid rgba(184,149,90,.22); font-weight: 400; }
 .zeiten td { text-align: right; }
-.zeiten tr.heute th, .zeiten tr.heute td { color: var(--gold-text); font-weight: 500; }
-.zeiten tr.heute th::after { content: " · heute"; font-size: 13px; }
+.zeiten tr.heute th, .zeiten tr.heute td { background: rgba(255,255,255,.75); color: var(--text); font-weight: 600; border-bottom-color: transparent; }
+.zeiten tr.heute th { padding-left: 16px; border-radius: 10px 0 0 10px; box-shadow: inset 3px 0 0 var(--gold); }
+.zeiten tr.heute td { padding-right: 16px; border-radius: 0 10px 10px 0; }
+.zeiten tr.heute th::after { content: "heute"; display: inline-block; margin-left: 10px; padding: 5px 9px 4px; border-radius: 999px; background: var(--text); color: var(--creme); font: 600 10px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; vertical-align: 2px; }
 .zeiten .zu { color: var(--text-leise); }
 .kontakt-liste { list-style: none; margin: 0 0 36px; padding: 0; }
 .kontakt-liste li { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid rgba(184,149,90,.22); }
@@ -764,8 +766,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Arbeiten</p>
-        <h2 class="titel rv" id="arbeiten-h" style="--i:1">Aus dem <em>Studio</em></h2>
+        <p class="oben rv">Aus dem Studio</p>
+        <h2 class="titel rv" id="arbeiten-h" style="--i:1"><em>Arbeiten</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2">Achtzehn Sets aus meinem Studio – von zartem Babyboomer bis zur Stiletto-Kunst. Jedes Set mache ich von Hand und stimme es auf die Kundin ab.</p>
@@ -812,8 +814,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Behandlungen &amp; Preise</p>
-        <h2 class="titel rv" id="preise-h" style="--i:1">Klar und <em>fair</em></h2>
+        <p class="oben rv">Klar und fair</p>
+        <h2 class="titel rv" id="preise-h" style="--i:1">Behandlungen &amp; <em>Preise</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2">Alle Preise in Franken, bar bezahlt ohne Zuschläge. Welche Grösse passt, besprechen wir gemeinsam – Form, Farbe und Technik stimmen wir auf Sie ab.</p>
@@ -986,8 +988,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Wettkämpfe</p>
-        <h2 class="titel rv" id="titel-h" style="--i:1">Auf <em>internationaler</em> Bühne</h2>
+        <p class="oben rv">Auf internationaler Bühne</p>
+        <h2 class="titel rv" id="titel-h" style="--i:1"><em>Wettkämpfe</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2">Von 2022 bis 2025 habe ich an Europa- und Weltmeisterschaften teilgenommen – nicht für die Pokale, sondern um mich selbst herauszufordern. Diese Genauigkeit spüren Sie bei jedem Termin.</p>
@@ -1076,8 +1078,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
       </div>
     </div>
     <div>
-      <p class="oben rv">Über mich</p>
-      <h2 class="titel rv" id="ueber-h" style="--i:1">Vom Hobby zur <em>Berufung</em></h2>
+      <p class="oben rv">Vom Hobby zur Berufung</p>
+      <h2 class="titel rv" id="ueber-h" style="--i:1">Über <em>mich</em></h2>
       <blockquote class="zitat rv" style="--i:2">«Ich liebe es, Frauen zu verschönern und ihnen ein gutes Gefühl zu geben.»</blockquote>
       <p class="rv" style="--i:3">Angefangen hat alles ganz einfach: Ich habe mir aus Interesse selbst die Nägel gemacht. Sehr schnell wurde daraus eine grosse Freude, dann eine Leidenschaft und schliesslich meine Berufung.</p>
       <p class="rv" style="--i:4">Diese Begeisterung hat mich dazu gebracht, mich selbstständig zu machen und mein eigenes Studio im Langenthal zu eröffnen. Hier nehme ich mir Zeit für jede Kundin – für gute Gespräche und für Nägel, die lange schön bleiben.</p>
@@ -1090,8 +1092,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
 <section class="abschnitt" id="fragen" aria-labelledby="fragen-h">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:clamp(40px,6vw,64px)">
-      <p class="oben rv">Häufige Fragen</p>
-      <h2 class="titel rv" id="fragen-h" style="--i:1">Was Kundinnen <em>wissen möchten</em></h2>
+      <p class="oben rv">Was Kundinnen wissen möchten</p>
+      <h2 class="titel rv" id="fragen-h" style="--i:1">Häufige <em>Fragen</em></h2>
       <svg class="zier mitte" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
     </div>
     <div class="fragen">
@@ -1140,8 +1142,8 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
   <div class="wrap">
     <div class="titel-kopf">
       <div>
-        <p class="oben rv">Kontakt</p>
-        <h2 class="titel rv" id="kontakt-h" style="--i:1">Mitten im <em>Langenthal</em></h2>
+        <p class="oben rv">Mitten im Langenthal</p>
+        <h2 class="titel rv" id="kontakt-h" style="--i:1"><em>Kontakt</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
       <p class="einleitung rv" style="--i:2" data-neu="Sie finden mein Studio an der Blumenstrasse 37 im Langenthal.">Noch finden Sie mein Studio an der Spitalgasse 10. Ab Mitte November bin ich an der neuen Adresse: Blumenstrasse 37 im Langenthal.</p>
