@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de-CH">
+<html lang="de-CH" data-umzug="2026-11-16">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,7 @@ footer a { color: inherit; }
   <address>
     Nailed by Joanna Förster<br>
     Inhaberin: Joanna Förster<br>
-    Blumenstrasse 37<br>
+    <span data-neu="Blumenstrasse 37">Spitalgasse 10</span><br>
     4900 Langenthal<br>
     Schweiz<br><br>
     Telefon: <a href="tel:+41766209822">076 620 98 22</a><br>
@@ -123,5 +123,13 @@ footer a { color: inherit; }
 <footer>
   <div class="innen">© 2026 Nailed by Joanna Förster · <a href="./">Zur Startseite</a></div>
 </footer>
+<script>
+  /* Umzug: ab dem Datum in <html data-umzug="..."> automatisch die neue Adresse */
+  (function () {
+    var umzug = document.documentElement.dataset.umzug;
+    if (!umzug || new Date() < new Date(umzug + "T00:00")) return;
+    document.querySelectorAll("[data-neu]").forEach(function (el) { el.innerHTML = el.dataset.neu; });
+  })();
+</script>
 </body>
 </html>

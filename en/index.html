@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <!-- Automatisch erzeugt aus ../index.html mit en_bauen.py – nicht von Hand bearbeiten -->
-<html lang="en">
+<html lang="en" data-umzug="2026-11-16">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Nailed by Joanna Förster · Nail Studio Langenthal</title>
-<meta name="description" content="Nail studio in Langenthal, Switzerland, by Joanna Förster, an 11-time winner at European and World Championships in nail design. Gel extensions, Russian manicure, gel polish, hand-painted nail art and pedicure. Book on Treatwell.">
+<meta name="description" content="Nail studio in Langenthal, Switzerland, by Joanna Förster, with 11 first places at European and World Championships in nail design. Gel extensions, Russian manicure, gel polish, hand-painted nail art and pedicure. Book on Treatwell.">
 <meta name="theme-color" content="#f4ece1">
 <meta name="color-scheme" content="light only">
 <meta property="og:title" content="Nailed by Joanna Förster · Nail Studio Langenthal">
-<meta property="og:description" content="Competition-level nails: 11 wins at European and World Championships in nail design, Blumenstrasse 37, Langenthal.">
+<meta property="og:description" content="Competition-level nails: 11 first places at European and World Championships in nail design, Langenthal.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://mauricestuder.github.io/nailedbyjoanna/en/">
@@ -36,7 +36,7 @@
   "telephone": "+41 76 620 98 22",
   "email": "foerster.joanna89@gmail.com",
   "sameAs": ["https://www.instagram.com/nailed_byjoanna/"],
-  "address": {"@type": "PostalAddress", "streetAddress": "Blumenstrasse 37", "postalCode": "4900", "addressLocality": "Langenthal", "addressCountry": "CH"},
+  "address": {"@type": "PostalAddress", "streetAddress": "Spitalgasse 10", "postalCode": "4900", "addressLocality": "Langenthal", "addressCountry": "CH"},
   "openingHoursSpecification": [
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "07:30", "closes": "18:30"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Thursday"], "opens": "08:00", "closes": "18:30"},
@@ -315,7 +315,7 @@ p { margin: 0 0 1em; }
 .plaetze { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
 .plaetze li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-leise); line-height: 1.35; }
 /* Rang als Medaille: Gold, Silber, Bronze, danach nur Rand */
-.platz { flex: none; display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; font: 500 13px/1 var(--sans); color: var(--text); border: 1px solid var(--sand); }
+.platz { flex: none; display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; font: italic 500 15px/1 var(--serif); font-variant-numeric: lining-nums; color: var(--text); border: 1px solid var(--sand); padding-right: 1px; }
 .platz.p1 { background: var(--gold-glanz); border-color: transparent; }
 .platz.p2 { background: linear-gradient(100deg, #c9c4bd, #eeebe6 50%, #bdb7ae); border-color: transparent; }
 .platz.p3 { background: linear-gradient(100deg, #b98a64, #e3c1a0 50%, #a8774f); border-color: transparent; }
@@ -531,23 +531,29 @@ p { margin: 0 0 1em; }
 .stimmen-quelle a { color: var(--gold-hell); }
 
 /* ---------- Fragen ---------- */
-.fragen { max-width: 860px; margin-inline: auto; }
+/* Am PC zwei Spalten nebeneinander, kompakter; auf dem Handy untereinander */
+.fragen { max-width: 1120px; margin-inline: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; align-items: start; }
 .frage { border-bottom: 1px solid rgba(184,149,90,.35); }
 .frage:first-child { border-top: 1px solid rgba(184,149,90,.35); }
 .frage summary {
-  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 28px 0; font: 400 clamp(21px, 2.4vw, 26px)/1.3 var(--serif);
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 19px 0; font: 400 clamp(18px, 1.7vw, 21px)/1.3 var(--serif); transition: color .3s;
 }
 .frage summary::-webkit-details-marker { display: none; }
-.plus { position: relative; flex: none; width: 36px; height: 36px; border: 1px solid var(--gold); border-radius: 50%; transition: background-color .3s, transform .5s var(--ease-out); }
-.plus::before, .plus::after { content: ""; position: absolute; left: 11px; top: 17px; width: 12px; height: 1px; background: var(--gold-text); }
-.plus::after { transform: rotate(90deg); transition: transform .5s var(--ease-out); }
-.frage[open] .plus { transform: rotate(180deg); background: var(--beige); }
-.frage[open] .plus::after { transform: rotate(0); }
-.frage .antwort { padding: 0 60px 30px 0; color: var(--text-leise); }
-.frage[open] .antwort { animation: einblenden .5s var(--ease-out); }
+@media (hover: hover) { .frage summary:hover { color: var(--gold-text); } }
+.plus { position: relative; flex: none; width: 30px; height: 30px; border: 1px solid var(--gold); border-radius: 50%; transition: background-color .3s, transform .4s var(--ease-out); }
+.plus::before, .plus::after { content: ""; position: absolute; left: 8px; top: 14px; width: 12px; height: 1px; background: var(--gold-text); }
+.plus::after { transform: rotate(90deg); transition: transform .4s var(--ease-out); }
+.frage[open]:not(.schliesst) .plus { transform: rotate(180deg); background: var(--beige); }
+.frage[open]:not(.schliesst) .plus::after { transform: rotate(0); }
+.frage .antwort { padding: 0 48px 22px 0; font-size: 16px; color: var(--text-leise); }
+html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out); }
 .frage .antwort p:last-child { margin: 0; }
-@media (max-width: 600px) { .frage .antwort { padding-right: 0; } }
+@media (max-width: 900px) {
+  .fragen { grid-template-columns: 1fr; max-width: 860px; }
+  .fragen-spalte + .fragen-spalte .frage:first-child { border-top: 0; }
+}
+@media (max-width: 600px) { .frage .antwort { padding-right: 0; } .frage summary { padding: 17px 0; } }
 
 /* ---------- Aufruf ---------- */
 .aufruf { text-align: center; background: radial-gradient(700px 360px at 50% 0%, rgba(220,195,147,.35), transparent 70%), var(--beige); }
@@ -690,7 +696,7 @@ p { margin: 0 0 1em; }
     <li><a href="#kontakt">Contact</a></li>
   </ul>
   <a class="knopf knopf-voll" href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Book now</a>
-  <p class="menue-kontakt"><a href="tel:+41766209822">076 620 98 22</a><br>Blumenstrasse 37, 4900 Langenthal</p>
+  <p class="menue-kontakt"><a href="tel:+41766209822">076 620 98 22</a><br><span data-neu="Blumenstrasse 37, 4900 Langenthal">Spitalgasse 10, 4900 Langenthal</span></p>
 </div>
 
 <main id="inhalt">
@@ -707,13 +713,13 @@ p { margin: 0 0 1em; }
       </p>
       <p class="abzeichen auftakt" style="--i:0">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 4h10v4a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4.5a2.5 2.5 0 0 0 2.6 3M17 6h2.5a2.5 2.5 0 0 1-2.6 3M12 13v4M8.5 20h7M9.5 17h5"/></svg>
-        11 wins at European &amp; World Championships
+        11 first places at European &amp; World Championships
       </p>
       <h1>
         <span class="zeile"><span style="--i:1">Nails at</span></span>
         <span class="zeile"><span style="--i:2"><em>contest level</em></span></span>
       </h1>
-      <p class="einleitung auftakt" style="--i:4">Gel extensions, Russian manicure and hand-painted nail art – with the precision of my international competitions and the calm of my small studio on Blumenstrasse in Langenthal.</p>
+      <p class="einleitung auftakt" style="--i:4">Gel extensions, Russian manicure and hand-painted nail art – with the precision of my international competitions and the calm of my small studio on <span data-neu="Blumenstrasse">Spitalgasse</span> in Langenthal.</p>
       <div class="kopf-knoepfe auftakt" style="--i:5">
         <a class="knopf knopf-voll" href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">
           Book now
@@ -1056,7 +1062,7 @@ p { margin: 0 0 1em; }
     <div class="mehr-leiste"><button class="mehr mehr-urkunden" id="mehr-urkunden" type="button" aria-expanded="false" aria-controls="urkunden-huelle" hidden><span class="mehr-text">Show certificates</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button></div>
 
     <div class="zahlen">
-      <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Wins</span></div>
+      <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>First places</span></div>
       <div class="zahl rv" style="--i:1"><b data-zahl="17">17</b><span>Podium places</span></div>
       <div class="zahl rv" style="--i:2"><b data-zahl="5" data-komma="1">5.0</b><span>Stars</span></div>
       <div class="zahl rv" style="--i:3"><b data-zahl="89">89</b><span>Reviews</span></div>
@@ -1095,38 +1101,42 @@ p { margin: 0 0 1em; }
       <svg class="zier mitte" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
     </div>
     <div class="fragen">
-      <details class="frage rv">
-        <summary>How did you get into nails?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>Through a hobby. I started by doing my own nails, it became a passion – and today it’s my job.</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>Where do the trophies come from?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>From European and World Championships between 2022 and 2025. I took part to challenge myself: a championship brings much more adrenaline than everyday studio life.</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>Is the work demanding?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>Yes, my back and hands often feel it. But my clients’ joy makes it easier – and there are good conversations every day.</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>How do I book an appointment?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>The easiest way is <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Treatwell</a>: you can see all free slots and book around the clock. Or call <a href="tel:+41766209822">076 620 98 22</a> or email <a href="mailto:foerster.joanna89@gmail.com">foerster.joanna89@gmail.com</a>.</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>What if I need to cancel?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>You can cancel up to 24 hours before your appointment – on Treatwell, by phone or by email. For later cancellations I charge 50% of the booked treatment, for no-shows 100%.</p><p>If you are 10 minutes late or more, I decide whether the design you asked for is still possible. From 20 minutes late I can't do the treatment any more and charge the full price.</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>Anything else I should know?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>For extra designs, French or hand-painted decorations, please book at least 30 minutes extra – otherwise there isn't enough time. Please report any complaints within 7 days; mechanical damage and damage you caused yourself are not covered. Unfortunately pets and small children can't come along to the studio.</p><p>By booking you accept my <a href="../rechtliches.html#agb" hreflang="de">terms and conditions</a> (in German).</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>How can I pay?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>At the studio, in cash or with Twint. Twint payments have a CHF 2 fee.</p></div>
-      </details>
-      <details class="frage rv">
-        <summary>Which languages do you speak?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="antwort"><p>German, English and Polish.</p></div>
-      </details>
+      <div class="fragen-spalte">
+        <details class="frage rv">
+          <summary>How did you get into nails?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>Through a hobby. I started by doing my own nails, it became a passion – and today it’s my job.</p></div>
+        </details>
+        <details class="frage rv">
+          <summary>Where do the trophies come from?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>From European and World Championships between 2022 and 2025. I took part to challenge myself: a championship brings much more adrenaline than everyday studio life.</p></div>
+        </details>
+        <details class="frage rv">
+          <summary>Is the work demanding?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>Yes, my back and hands often feel it. But my clients’ joy makes it easier – and there are good conversations every day.</p></div>
+        </details>
+        <details class="frage rv">
+          <summary>How do I book an appointment?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>The easiest way is <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Treatwell</a>: you can see all free slots and book around the clock. Or call <a href="tel:+41766209822">076 620 98 22</a> or email <a href="mailto:foerster.joanna89@gmail.com">foerster.joanna89@gmail.com</a>.</p></div>
+        </details>
+      </div>
+      <div class="fragen-spalte">
+        <details class="frage rv">
+          <summary>What if I need to cancel?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>You can cancel up to 24 hours before your appointment – on Treatwell, by phone or by email. For later cancellations I charge 50% of the booked treatment, for no-shows 100%.</p><p>If you are 10 minutes late or more, I decide whether the design you asked for is still possible. From 20 minutes late I can't do the treatment any more and charge the full price.</p></div>
+        </details>
+        <details class="frage rv">
+          <summary>Anything else I should know?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>For extra designs, French or hand-painted decorations, please book at least 30 minutes extra – otherwise there isn't enough time. Please report any complaints within 7 days; mechanical damage and damage you caused yourself are not covered. Unfortunately pets and small children can't come along to the studio.</p><p>By booking you accept my <a href="../rechtliches.html#agb" hreflang="de">terms and conditions</a> (in German).</p></div>
+        </details>
+        <details class="frage rv">
+          <summary>How can I pay?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>At the studio, in cash or with Twint. Twint payments have a CHF 2 fee.</p></div>
+        </details>
+        <details class="frage rv">
+          <summary>Which languages do you speak?<span class="plus" aria-hidden="true"></span></summary>
+          <div class="antwort"><p>German, English and Polish.</p></div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
@@ -1152,7 +1162,7 @@ p { margin: 0 0 1em; }
         <h2 class="titel rv" id="kontakt-h" style="--i:1">In the heart of <em>Langenthal</em></h2>
         <svg class="zier" viewBox="0 0 180 14" aria-hidden="true"><line x1="0" y1="7" x2="80" y2="7"/><rect class="raute" x="86" y="3" width="8" height="8"/><line x1="100" y1="7" x2="180" y2="7"/></svg>
       </div>
-      <p class="einleitung rv" style="--i:2">From mid-November you’ll find my studio at its new address: Blumenstrasse 37 in Langenthal.</p>
+      <p class="einleitung rv" style="--i:2" data-neu="You’ll find my studio at Blumenstrasse 37 in Langenthal.">My studio is still at Spitalgasse 10. From mid-November you’ll find me at the new address: Blumenstrasse 37 in Langenthal.</p>
     </div>
 
     <div class="kontakt-raster">
@@ -1174,7 +1184,7 @@ p { margin: 0 0 1em; }
         <ul class="kontakt-liste">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            <div><span class="etikett">Address</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Blumenstrasse+37%2C+4900+Langenthal" target="_blank" rel="noopener">Blumenstrasse 37, 4900 Langenthal</a></div>
+            <div><span class="etikett">Address</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Spitalgasse+10%2C+4900+Langenthal" data-neu-href="https://www.google.com/maps/search/?api=1&amp;query=Blumenstrasse+37%2C+4900+Langenthal" data-neu="Blumenstrasse 37, 4900 Langenthal" target="_blank" rel="noopener">Spitalgasse 10, 4900 Langenthal</a></div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
@@ -1214,7 +1224,7 @@ p { margin: 0 0 1em; }
       </ul>
     </div>
     <div class="fuss-unten">
-      <p>Blumenstrasse 37, 4900 Langenthal · <a href="../rechtliches.html" hreflang="de">Legal notice, terms &amp; privacy (German)</a> · <a href="https://www.instagram.com/nailed_byjoanna/" target="_blank" rel="noopener">Instagram</a> · <a href="../" hreflang="de" lang="de">Deutsch</a></p>
+      <p><span data-neu="Blumenstrasse 37, 4900 Langenthal">Spitalgasse 10, 4900 Langenthal</span> · <a href="../rechtliches.html" hreflang="de">Legal notice, terms &amp; privacy (German)</a> · <a href="https://www.instagram.com/nailed_byjoanna/" target="_blank" rel="noopener">Instagram</a> · <a href="../" hreflang="de" lang="de">Deutsch</a></p>
       <p>© <span id="jahr">2026</span> Nailed by Joanna Förster</p>
     </div>
   </div>
@@ -1252,6 +1262,36 @@ p { margin: 0 0 1em; }
       scrollTo({ top: 0, behavior: "instant" });
     }
   } catch (e) {}
+
+  /* Umzug: bis zum Datum in <html data-umzug="..."> die alte Adresse, danach automatisch die neue (data-neu, data-neu-href) */
+  (function () {
+    var umzug = document.documentElement.dataset.umzug;
+    if (!umzug || new Date() < new Date(umzug + "T00:00")) return;
+    document.querySelectorAll("[data-neu]").forEach(function (el) { el.innerHTML = el.dataset.neu; });
+    document.querySelectorAll("[data-neu-href]").forEach(function (el) { el.href = el.dataset.neuHref; });
+    var ld = document.querySelector('script[type="application/ld+json"]');
+    if (ld) ld.textContent = ld.textContent.replace("Spitalgasse 10", "Blumenstrasse 37");
+  })();
+
+  /* Fragen: Antwort sanft auf- und zuklappen */
+  document.querySelectorAll(".frage").forEach(function (d) {
+    var a = d.querySelector(".antwort");
+    d.querySelector("summary").addEventListener("click", function (e) {
+      if (ruhig || !a.animate) return;
+      e.preventDefault();
+      if (d.laeuft) return;
+      var schliessen = d.open;
+      d.laeuft = true;
+      if (schliessen) d.classList.add("schliesst"); else d.open = true;
+      var pb = getComputedStyle(a).paddingBottom, voll = { height: a.offsetHeight + "px", paddingBottom: pb, opacity: 1 }, leer = { height: "0px", paddingBottom: "0px", opacity: 0 };
+      a.style.overflow = "hidden";
+      a.animate(schliessen ? [voll, leer] : [leer, voll], { duration: schliessen ? 260 : 360, easing: "cubic-bezier(.2,.7,.2,1)" }).onfinish = function () {
+        if (schliessen) { d.open = false; d.classList.remove("schliesst"); }
+        a.style.overflow = "";
+        d.laeuft = false;
+      };
+    });
+  });
 
   /* Ferien-Hinweis ein- und ausblenden */
   (function () {
