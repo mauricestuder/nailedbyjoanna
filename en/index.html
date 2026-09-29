@@ -336,6 +336,9 @@ p { margin: 0 0 1em; }
 .urkunden a { display: block; aspect-ratio: 10 / 7; overflow: hidden; border-radius: 3px; background: var(--beige-dunkel); box-shadow: 0 1px 3px rgba(33,27,22,.12); }
 .urkunden img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
 .urkunden a:hover img { transform: scale(1.05); }
+/* Mit JS zugeklappt, der dunkle Pfeil klappt auf */
+.js .urkunden-huelle { overflow: hidden; max-height: 0; transition: max-height .7s var(--ease-in-out); }
+.urkunden-huelle .urkunden { padding: 2px 0 6px; }
 @media (max-width: 900px) { .urkunden { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 560px) { .urkunden { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
 
@@ -389,13 +392,13 @@ p { margin: 0 0 1em; }
 .js .galerie-huelle { overflow: hidden; transition: max-height .7s var(--ease-in-out); }
 .mehr {
   display: grid; place-items: center; width: 56px; height: 56px; margin: 8px auto 0; padding: 0;
-  border: 1px solid var(--gold); border-radius: 50%; background: var(--creme); color: var(--gold-text);
+  border: 1px solid var(--text); border-radius: 50%; background: var(--text); color: var(--creme);
   cursor: pointer; touch-action: manipulation; transition: background .3s, border-color .3s;
 }
 .mehr[hidden] { display: none; }
 .mehr svg { width: 22px; height: 22px; transition: transform .5s var(--ease-out); }
 .mehr[aria-expanded="true"] svg { transform: rotate(180deg); }
-@media (hover: hover) { .mehr:hover { background: var(--beige-dunkel); border-color: var(--gold-text); } }
+@media (hover: hover) { .mehr:hover { background: var(--gold-text); border-color: var(--gold-text); } }
 .galerie > a.einblenden { animation: einblenden .5s var(--ease-out); }
 @keyframes einblenden { from { opacity: 0; transform: translateY(12px); } }
 
@@ -789,7 +792,8 @@ p { margin: 0 0 1em; }
     </div>
 
     <!-- Urkunden: bilder/web/urkunde-NN-800|1600, Fotos von Joanna (ohne EXIF) -->
-    <div class="urkunden-kopf rv"><h3>The certificates</h3><p>Tap to enlarge</p></div>
+    <div class="urkunden-kopf rv"><h3>The certificates</h3><p id="urkunden-hinweis">Tap to enlarge</p></div>
+    <div class="urkunden-huelle" id="urkunden-huelle">
     <div class="urkunden" id="urkunden">
       <a class="rv" style="--i:0" href="../bilder/web/urkunde-01-1600.jpg" data-text="European Championship · Place 1 · Babyboomer Painting Art"><picture><source type="image/webp" srcset="../bilder/web/urkunde-01-800.webp"><img src="../bilder/web/urkunde-01-800.jpg" width="800" height="556" loading="lazy" decoding="async" alt="Certificate, European Championship: place 1, Babyboomer Painting Art"></picture></a>
       <a class="rv" style="--i:1" href="../bilder/web/urkunde-02-1600.jpg" data-text="European Championship · Place 1 · Stiletto with Decorations"><picture><source type="image/webp" srcset="../bilder/web/urkunde-02-800.webp"><img src="../bilder/web/urkunde-02-800.jpg" width="800" height="558" loading="lazy" decoding="async" alt="Certificate, European Championship: place 1, Stiletto with Decorations"></picture></a>
@@ -804,6 +808,8 @@ p { margin: 0 0 1em; }
       <a class="rv" style="--i:4" href="../bilder/web/urkunde-11-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · Poster Wedding Day Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-11-800.webp"><img src="../bilder/web/urkunde-11-800.jpg" width="800" height="550" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, Poster Wedding Day Nails"></picture></a>
       <a class="rv" style="--i:5" href="../bilder/web/urkunde-12-1600.jpg" data-text="Golden World Cup Dubai · Place 1 · Rainbow Nails"><picture><source type="image/webp" srcset="../bilder/web/urkunde-12-800.webp"><img src="../bilder/web/urkunde-12-800.jpg" width="800" height="554" loading="lazy" decoding="async" alt="Certificate, Golden World Cup Dubai: place 1, Rainbow Nails"></picture></a>
     </div>
+    </div>
+    <button class="mehr mehr-urkunden" id="mehr-urkunden" type="button" aria-expanded="false" aria-controls="urkunden-huelle" aria-label="Show certificates" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
 
     <div class="zahlen">
       <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Wins</span></div>
@@ -1462,6 +1468,26 @@ p { margin: 0 0 1em; }
     klappen();
   }
   /* Galerie auf- und zuklappen */
+  /* Urkunden: zugeklappt, bis man auf den Pfeil tippt */
+  var uHuelle = document.getElementById("urkunden-huelle"), uKnopf = document.getElementById("mehr-urkunden"), uHinweis = document.getElementById("urkunden-hinweis");
+  uHinweis.textContent = "12 certificates";
+  uKnopf.hidden = false;
+  uKnopf.addEventListener("click", function () {
+    var offen = uKnopf.getAttribute("aria-expanded") !== "true";
+    if (!offen) { uHuelle.style.maxHeight = uHuelle.scrollHeight + "px"; void uHuelle.offsetHeight; }
+    uHuelle.style.maxHeight = offen ? uHuelle.scrollHeight + "px" : "0px";
+    uKnopf.setAttribute("aria-expanded", offen);
+    uKnopf.setAttribute("aria-label", offen ? "Hide certificates" : "Show certificates");
+    uHinweis.textContent = offen ? "Tap to enlarge" : "12 certificates";
+    if (!offen) {
+      var oben = uHuelle.getBoundingClientRect().top + scrollY - 160;
+      if (scrollY > oben) scrollTo({ top: oben, behavior: ruhig ? "auto" : "smooth" });
+    }
+  });
+  uHuelle.addEventListener("transitionend", function () {
+    if (uKnopf.getAttribute("aria-expanded") === "true") uHuelle.style.maxHeight = "none";
+  });
+
   var huelle = document.getElementById("galerie-huelle"), mehr = document.getElementById("mehr"), galerieOffen = false;
   function klappen() {
     var voll = galerie.offsetHeight, zu = breitBild.matches ? 760 : 600, lohnt = voll > zu + 160, offen = galerieOffen || !lohnt;
