@@ -1,3 +1,4 @@
+# Nailed by Joanna Förster – alle Seiten für Suchmaschinen freigegeben
 User-agent: *
 Allow: /
 
