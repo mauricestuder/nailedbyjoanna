@@ -738,7 +738,7 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
         <span class="sterne" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8L12 2.8Z"/></svg>
         </span>
-        <span><strong>5,0</strong> aus 89 Bewertungen auf Treatwell</span>
+        <span><strong>5,0</strong> aus über 100 Bewertungen auf Treatwell</span>
       </a>
     </div>
 
@@ -1032,7 +1032,7 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
       <div class="zahl rv" style="--i:0"><b data-zahl="11">11</b><span>Erste Plätze</span></div>
       <div class="zahl rv" style="--i:1"><b data-zahl="17">17</b><span>Podestplätze</span></div>
       <div class="zahl rv" style="--i:2"><b data-zahl="5" data-komma="1">5,0</b><span>Sterne</span></div>
-      <div class="zahl rv" style="--i:3"><b data-zahl="89">89</b><span>Bewertungen</span></div>
+      <div class="zahl rv" style="--i:3"><b data-zahl="100" data-plus="+">100+</b><span>Bewertungen</span></div>
     </div>
   </div>
 </section>
@@ -1072,7 +1072,7 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </button>
     </div>
-    <p class="stimmen-quelle">5,0 von 5 Sternen aus 89 Bewertungen · <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">alle auf Treatwell lesen</a><br>Waren Sie schon bei mir? Über Ihre <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Bewertung auf Treatwell</a> freue ich mich.</p>
+    <p class="stimmen-quelle">5,0 von 5 Sternen aus über 100 Bewertungen · <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">alle auf Treatwell lesen</a><br>Waren Sie schon bei mir? Über Ihre <a href="https://www.treatwell.ch/ort/nailed-by-joanna-foerster/" target="_blank" rel="noopener">Bewertung auf Treatwell</a> freue ich mich.</p>
   </div>
 </section>
 
@@ -1335,7 +1335,7 @@ html:not(.js) .frage[open] .antwort { animation: einblenden .5s var(--ease-out);
     function schritt(t) {
       if (!start) start = t;
       var p = Math.min((t - start) / dauer, 1), wert = ziel * (1 - Math.pow(1 - p, 3));
-      el.textContent = komma ? wert.toFixed(1).replace(".", ",") : Math.round(wert);
+      el.textContent = (komma ? wert.toFixed(1).replace(".", ",") : Math.round(wert)) + (el.dataset.plus || "");
       if (p < 1) requestAnimationFrame(schritt);
     }
     requestAnimationFrame(schritt);
